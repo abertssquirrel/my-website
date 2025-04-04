@@ -114,14 +114,15 @@ ul {
   text-align: end;
   border-radius: 1rem;
   padding: 1.5rem;
+  list-style: none;
 }
 
 header a {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   color: var(--dark-txt-clr);
-  text-decoration: none;
   -webkit-text-stroke: 20px var(--whitish-clr);
   paint-order: stroke;
+  text-decoration: none;
 }
 
 header a:hover,
