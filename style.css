@@ -154,12 +154,13 @@ header a {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   color: black;
   text-decoration: none;
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  -webkit-text-stroke: 0.3em var(--bg-pink);
+  paint-order: stroke;
 }
 
 header a:hover,
 header a:focus-visible {
-  background-color: var(--bg-pink);
+  -webkit-text-stroke-color: var(--bg-yellow);
 }
 
 h1,

@@ -104,12 +104,13 @@ header a {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   color: black;
   text-decoration: none;
-  text-shadow: 1px 1px 0px var(--accent-pink), 2px 2px 0px var(--accent-pink);
+  -webkit-text-stroke: 0.3em var(--bg-blue);
+  paint-order: stroke;
 }
 
 header a:hover,
 header a:focus-visible {
-  background-color: var(--bg-pink);
+  -webkit-text-stroke-color: var(--accent-pink);
 }
 
 h1,
@@ -122,12 +123,19 @@ h1 {
   font-size: clamp(2.5rem, 9vw + 1rem, 10rem);
   line-height: 0.8;
   margin-bottom: 3rem;
+  text-shadow: 1px 1px 0 var(--bg-blue), 2px 2px 0 var(--bg-blue),
+    3px 3px 0 var(--bg-blue), -1px -1px 0 var(--accent-pink),
+    -2px -2px 0 var(--accent-pink), -3px -3px 0 var(--accent-pink);
 }
 
 h2 {
   font-size: clamp(2rem, 4vw + 1rem, 4rem);
   line-height: 0.8;
   margin-bottom: 3rem;
+}
+
+p {
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
 }
 
 .section-items-grid {

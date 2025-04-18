@@ -78,6 +78,18 @@
           planning on using text-stroke on my actual text... so let's pick some
           colors and make some shadows!
         </p>
+        <p class="p-space">
+          I added a dark red text-shadow to the top, and two differnt light red
+          text-shadows to the bottom of the text.
+        </p>
+
+        <div class="album tiltRight">
+          <div class="text">
+            <h1>daft</h1>
+            <h1>punk</h1>
+          </div>
+        </div>
+        <p class="code">CSS</p>
         <pre class="code-block p-space"><code>:root {
         --clr-dp-black: rgb(8, 1, 0);
         --clr-dp-darkblack: rgb(20, 5, 3);
@@ -103,16 +115,7 @@
             font-family: var(--font-dp);
             text-align: center;
           }</code></pre>
-        <p class="p-space">
-          Ok I added a dark red text-shadow to the top, and two differnt light
-          red text-shadows to the bottom of the text.
-        </p>
-        <div class="album tiltRight">
-          <div class="text">
-            <h1>daft</h1>
-            <h1>punk</h1>
-          </div>
-        </div>
+
         <h3>Step three: Two text-strokes!?</h3>
         <p class="p-space">
           Now for the tricky part, adding two differnt text-strokes. To do this
@@ -123,6 +126,7 @@
           First let's take a peek at how I've been setting up the album art in
           html
         </p>
+        <p class="code">HTML</p>
         <pre class="code-block p-space"><code>&lt;div class="album">
     &lt;div class="text">
         &lt;h1 class="daft" data-title="daft">daft&lt;/h1>
@@ -136,6 +140,7 @@
           it to contain the same text as my <code>H1</code> element because we
           are going to put our text-stroke on it.
         </p>
+        <p class="code">CSS</p>
         <pre class="code-block p-space"><code>
 /* black outline*/
 .daft::before,
