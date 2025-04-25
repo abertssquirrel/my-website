@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+
+:root {
+  --clr-background: black;
+  --clr-text: white;
+  --clr-blue: rgba(33, 66, 253, 0.9);
+  --clr-yellow: yellow;
+  --clr-red: rgb(240, 0, 32);
+  --clr-purple: rgb(171, 42, 197);
+  --clr-orange: rgb(255, 145, 0);
+  --clr-green: rgb(12, 248, 23);
+  --font-lizzo: system-ui, sans-serif;
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One';
+  --font-typewriter: Superclarendon, 'Bookman Old Style', 'URW Bookman',
+    'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+
+/*reset*/
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* MY STYLES :) */
+
+body {
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  height: 100%;
+}
+
+.body-wrapper {
+  padding-inline: 2rem;
+  max-width: 1200px;
+  margin-inline: auto;
+  container-type: inline-size;
+  font-family: var(--font-typewriter);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  padding: 1.5rem;
+  list-style: none;
+}
+
+header a {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  color: var(--clr-text);
+  text-decoration: none;
+  -webkit-text-stroke: 0.3em var(--clr-blue);
+  paint-order: stroke;
+}
+
+header a:hover,
+header a:focus-visible {
+  -webkit-text-stroke: 0.3em var(--clr-text);
+}
+
+.heading {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-shadow: 0.02em 0.02em 0em var(--clr-blue),
+    0.03em 0.03em 0em var(--clr-blue), -0.02em -0.02em 0em var(--clr-purple),
+    -0.03em -0.03em 0em var(--clr-purple);
+}
+
+.heading h1 {
+  font-family: var(--font-typewriter);
+  font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
+  line-height: 0.9;
+  color: var(--clr-text);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  border-bottom: solid white 1px;
+}
+
+.title-wrapper {
+  display: grid;
+  container-type: inline-size;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-bottom: 5rem;
+}
+
+.top {
+  grid-column: 1/5;
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: start;
+}
+
+.bottom {
+  grid-column: 1/5;
+  grid-row: 3/4;
+  align-self: center;
+  justify-self: start;
+  margin-left: 3cqi;
+}
+
+.heading h2 {
+  font-family: var(--font-lizzo);
+  font-size: 11cqi;
+  font-weight: 800;
+  line-height: 0.7;
+}
+
+.heading .small-title {
+  font-family: var(--font-typewriter);
+  font-size: 4cqi;
+  border: 1px solid white;
+  padding-inline: 4cqi;
+  padding-top: 1cqi;
+  grid-column: 1/5;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: start;
+  margin-left: 5cqi;
+}
+
+p {
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
+  font-family: var(--font-handwriting);
+  text-shadow: 1px 1px 0px var(--clr-blue), 2px 2px 0px var(--clr-blue);
+}
+
+.p-space {
+  margin-bottom: 2rem;
+}
+
+a {
+  color: var(--clr-text);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--clr-purple);
+}
+
+section {
+  margin-bottom: 10rem;
+}
+
+code {
+  font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+}
+
+.code-block {
+  background-color: rgb(248, 248, 20, 0.1);
+  color: var(--clr-yellow);
+  border-radius: 0.2em;
+  overflow-x: scroll;
+  padding: 1rem;
+  code {
+    font-size: 1rem;
+    text-shadow: 1px 1px 0px var(--clr-red);
+  }
+}
+
+::selection {
+  background: var(--clr-orange);
+}
+
+.ed-smile {
+  float: right;
+  shape-outside: circle();
+  width: 35cqi;
+  margin-left: 1rem;
+  rotate: 10deg;
+}
+
+.ed-whistle {
+  float: left;
+  shape-outside: circle();
+  width: 25cqi;
+  margin-right: 1rem;
+  margin-block: 1rem;
+  rotate: -3deg;
+}
+
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
+.role-name {
+  margin-top: 0.5rem;
+}
+.role-name h1 {
+  font-size: clamp(1rem, 2vw + 1rem, 3rem);
+  line-height: 1;
+}
+
+.role-name h2 {
+  font-size: clamp(1.5rem, 4vw + 1rem, 5rem);
+  line-height: 1;
+}
+
+.bebop-grid1 {
+  display: grid;
+  container-type: inline-size;
+  background: url(assets/photos/bea-snow.jpg);
+  background-color: var(--clr-red);
+  background-size: cover;
+  background-position: 25% 80%;
+  background-blend-mode: darken;
+  width: 100%;
+  height: clamp(150px, 50vw, 600px);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+.black-vertical {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 13cqi,
+    var(--clr-background) 13cqi,
+    var(--clr-background) 14.5cqi
+  );
+  z-index: 10;
+}
+
+.black-text {
+  grid-column: 1/-1;
+  grid-row: 4/-1;
+  align-self: end;
+  color: var(--clr-background);
+  font-size: 10cqi;
+  font-weight: 800;
+}
+
+.bebop-grid2 {
+  display: grid;
+  container-type: inline-size;
+  background: url(assets/photos/kringle-fire.jpg);
+  background-color: var(--clr-yellow);
+  background-size: cover;
+  background-blend-mode: darken;
+  width: 100%;
+  height: clamp(150px, 50vw, 600px);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+.black-horizontal {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 9cqi,
+    var(--clr-background) 9cqi,
+    var(--clr-background) 10.5cqi
+  );
+  z-index: 10;
+}
+
+.bebop-grid2 .black-text {
+  grid-column: 5/-1;
+  overflow: hidden;
+}
+
+.floof .bebop-grid1 {
+  background: url(assets/photos/shiela-bed.jpg);
+  background-color: var(--clr-purple);
+  background-position: center;
+}
+
+.floof .black-text {
+  rotate: 45deg;
+  grid-column: 1/-1;
+  grid-row: 5/-1;
+  margin-left: -16cqi;
+  line-height: 1;
+}
+
+.cuppy .bebop-grid1 {
+  background: url(assets/photos/cuppy-grass.jpg);
+  background-color: var(--clr-blue);
+  background-position: 99% 95%;
+}
+
+.cuppy .black-vertical {
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 30cqi,
+    var(--clr-background) 30cqi,
+    var(--clr-background) 35cqi
+  );
+}
+
+.tasha {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 1rem;
+}
+
+.bebop-grid3 {
+  display: grid;
+  container-type: inline-size;
+  background: url(assets/photos/tasha-nelly.jpg);
+  background-color: var(--clr-red);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: lighten;
+  width: 100%;
+  height: clamp(170px, 50vw, 600px);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+.tasha .black-vertical {
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 19cqi,
+    var(--clr-background) 19cqi,
+    var(--clr-background) 20.5cqi
+  );
+}
+
+.tasha .black-horizontal {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 19cqi,
+    var(--clr-background) 19cqi,
+    var(--clr-background) 20.5cqi
+  );
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  justify-self: end;
+}
+
+.tasha .role-name h1,
+.tasha .role-name h2 {
+  font-size: clamp(1.25rem, 2vw + 1rem, 2.5rem);
+}
+
+.mya {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  row-gap: 6rem;
+  column-gap: 1rem;
+}
+.mya .bebop-grid2 {
+  background: url(assets/photos/mya-xmas.jpg);
+  background-color: var(--clr-orange);
+  background-blend-mode: lighten;
+  background-position: center bottom;
+}
+
+.mya .black-horizontal {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 28cqi,
+    var(--clr-background) 28cqi,
+    var(--clr-background) 30.5cqi
+  );
+}
+
+.mya .how-to {
+  grid-column: 1/-1;
+}
+
+.mya h3 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  border-bottom: solid var(--clr-text) 1px;
+}
+
+.four-dogs-grid {
+  display: grid;
+  container-type: inline-size;
+  width: 100cqi;
+  height: 100cqi;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+}
+
+.red-block {
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 2cqi;
+  align-self: center;
+  color: var(--clr-background);
+  background-color: var(--clr-red);
+  font-weight: 800;
+  line-height: 0.8;
+  padding-top: 2cqi;
+  padding-bottom: 1.5cqi;
+  column-gap: 2cqi;
+  row-gap: 0cqi;
+}
+
+.red-block h3 {
+  font-size: 2.5cqi;
+  justify-self: end;
+}
+.red-block h4 {
+  font-size: 4cqi;
+  grid-column: 2;
+}
+
+.wide-dog-one {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  background-color: var(--clr-yellow);
+  background-image: url(assets/photos/dog-two.jpg);
+  background-blend-mode: hard-light;
+  background-size: cover;
+  width: 35cqi;
+  height: 30cqi;
+  margin-top: 2cqi;
+}
+
+.tall-dog-one {
+  grid-column-start: 6;
+  grid-row-end: 5;
+  align-self: end;
+  background-color: var(--clr-blue);
+  background-image: url(assets/photos/dog-one.jpg);
+  background-blend-mode: hard-light;
+  background-size: cover;
+  width: 30cqi;
+  height: 35cqi;
+  margin-bottom: -2cqi;
+  margin-left: -3cqi;
+}
+
+.tall-dog-two {
+  grid-column-start: 2;
+  grid-row-start: 7;
+  background-color: var(--clr-purple);
+  background-image: url(assets/photos/dog-three.jpg);
+  background-blend-mode: hard-light;
+  background-size: cover;
+  width: 30cqi;
+  height: 35cqi;
+  margin-top: -2cqi;
+  margin-left: 5cqi;
+}
+
+.wide-dog-two {
+  grid-column-start: 6;
+  grid-row-start: 7;
+  background-color: var(--clr-orange);
+  background-image: url(assets/photos/dog-four.jpg);
+  background-blend-mode: hard-light;
+  background-size: cover;
+  width: 35cqi;
+  height: 30cqi;
+  margin-top: -2cqi;
+  margin-left: -3cqi;
+}
+
+.bye p {
+  font-size: clamp(1.5rem, 3vw + 1rem, 5rem);
+  text-align: right;
+  font-style: italic;
+  font-family: var(--font-typewriter);
+
+  a {
+    text-decoration: none;
+  }
+}

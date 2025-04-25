@@ -146,16 +146,19 @@ p {
     minmax(min(var(--min-column-size), 100%), 1fr)
   );
   gap: 3rem;
+  margin-bottom: 5rem;
 }
 
 .album-art {
   --photo-width: clamp(260px, 35vw, 350px);
+  object-fit: cover;
   width: var(--photo-width);
+  height: var(--photo-width);
   margin-bottom: 1rem;
   box-shadow: 0.4em 0.4em 0em 0em var(--accent-pink);
 }
 
-.album-covers a {
+section a {
   text-decoration: none;
   color: black;
   font-size: 1.25rem;
@@ -164,7 +167,7 @@ p {
   justify-self: center;
 }
 
-.album-covers a:hover,
-.album-art a:focus-visible {
+section a:hover,
+section a:focus-visible {
   rotate: 5deg;
 }
