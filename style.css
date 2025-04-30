@@ -192,6 +192,9 @@ h2 {
 p {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+}
+
+.p-space {
   margin-bottom: 3rem;
 }
 
@@ -206,7 +209,61 @@ p {
   color: var(--accent-pink);
 }
 
+.text button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+.text button:hover,
+.text button:focus-visible {
+  color: var(--accent-pink);
+}
+
 .text {
   margin-top: 3rem;
   margin-bottom: 5rem;
+}
+
+.ranma {
+  width: clamp(200px, 80vw, 600px);
+  padding: 1rem;
+  border: var(--bg-pink) solid 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 60px 0px var(--accent-pink);
+  margin-inline: auto;
+  margin-top: 5rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.ranma h3 {
+  font-family: var(--font-pumpkin);
+  font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+  text-shadow: 1px 1px 0 var(--bg-blue), 2px 2px 0 var(--bg-blue);
+}
+
+.ranma img {
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.ranma button {
+  border-radius: 10px;
+  text-decoration: none;
+  background: var(--bg-pink);
+  margin-block: 1rem;
+  padding-block: 0.25rem;
+  padding-inline: 1rem;
+}
+
+.ranma button:hover,
+.ranma button:focus-visible {
+  background-color: var(--bg-yellow);
 }
