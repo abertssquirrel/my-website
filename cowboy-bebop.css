@@ -113,15 +113,16 @@ ul {
 header a {
   font-family: var(--font-handwriting);
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-  color: var(--clr-text);
+  color: var(--clr-background);
   text-decoration: none;
-  -webkit-text-stroke: 0.3em var(--clr-blue);
+  -webkit-text-stroke: 0.3em var(--clr-text);
   paint-order: stroke;
 }
 
 header a:hover,
 header a:focus-visible {
-  -webkit-text-stroke: 0.3em var(--clr-text);
+  color: var(--clr-background);
+  -webkit-text-stroke: 0.3em var(--clr-blue);
 }
 
 .heading {
