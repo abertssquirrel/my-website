@@ -1,0 +1,239 @@
+---
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import "/src/styles/reset.css"
+import "/src/styles/lizzo-boys.css"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Lizzo's Boys in CSS </title>
+	</head>
+  <body>
+    <div class="body-wrapper">
+      <Header></Header>
+      <div class="heading">
+        <h1>Album Art!!!</h1>
+        <h2>Recreating Lizzo's "Boys" in CSS</h2>
+      </div>
+      <section class="how-to">
+        <div class="grid-wrapper">
+          <div>
+            <p class="p-space">
+              I really like the graphic design for Lizzo's song "Boys", and it
+              seems like something CSS can handle. Afterall it's just a rainbow
+              stripe background, and some white text with a rainbow outline. Ok
+              maybe the rainbow outline will be tricky.
+            </p>
+            <p>Let's do this!</p>
+          </div>
+          <img
+            class="album-art"
+            src="/assets/photos/album-art/LizzoBoys2018Single.jpg"
+            alt="the album art from Lizzo's song 'Boys'"
+          />
+        </div>
+        <h3>Step one: Layout!</h3>
+        <p class="p-space">
+          To recreate the text layout of Lizzo’s cover art I’m going to rely on
+          <code>css grid</code> and <code>container query units</code>.
+          <code>CSS grid</code> will allow me to place the text exactly where I
+          want it and by setting <code>container-type: inline-size</code> on my
+          <code>div</code> I can set the font sizes in <code>cqi</code> so they
+          are responsive to the size of their container.
+        </p>
+        <p class="p-space">
+          The size of my "album" <code>div</code> is responsive because I used a
+          <code>clamp</code>. I personally like setting custom variables for
+          responsive widths so I can easily use them in a
+          <code>calc function</code> as I did to create my grid rows and
+          columns.
+          <code>grid-template-columns: repeat(6, minmax(0, 1fr))</code> would
+          have accomplished the same thing, but it seems too much like magic.
+        </p>
+        <div class="album-pink">
+          <h1 class="boys">BOYS</h1>
+          <h2 class="lizzo">LIZZO</h2>
+        </div>
+        <p class="pink">HTML</p>
+        <pre class="code-block p-space"><code>&lt;div class="album"&#62;
+    &lt;h1 class="boys"&#62;BOYS&lt;/h1&#62;
+    &lt;h2 class="lizzo"&#62;LIZZO&lt;/h2&#62;
+&lt;/div&#62;</code></pre>
+        <p class="pink">CSS</p>
+        <pre class="code-block p-space"><code>.album &#123;
+    --width: clamp(150px, 80vw, 500px);
+    display: grid;
+    container-type: inline-size;
+    width: var(--width);
+    height: var(--width);
+    grid-template-columns: repeat(6, calc(var(--width) / 6));
+    grid-template-rows: repeat(5, calc(var(--width) / 5));
+    background: var(--clr-pink);
+    box-shadow: 0.2em 0.2em 0.5em 0em var(--clr-hotpink);
+    border-radius: 0.2em;
+    margin-inline: auto;
+    margin-block: 4rem;
+&#125;
+    
+.boys &#123;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    justify-self: center;
+    align-self: center;
+    font-family: var(--font-lizzo);
+    color: white;
+    font-size: 33cqi;
+&#125;
+      
+.lizzo &#123;
+    grid-column: 5/-1;
+    grid-row: 4;
+    align-self: center;
+    justify-self: center;
+    margin-top: -3cqi;
+    font-family: var(--font-lizzo);
+    color: white;
+    font-size: 6cqi;
+&#125;</code></pre>
+        <h3>Step two: Stripes!</h3>
+        <p class="p-space">
+          I created a class called <code>stripes</code> and added it to my
+          "album" <code>div</code>. The stripe thickness is in <code>%</code> so
+          that it is relative to the width of the <code>div</code>.
+        </p>
+        <p class="p-space">
+          Unfortunately the stripe colors don't quite repeat, so I had to
+          lovingly place each color.
+        </p>
+        <div class="album stripes">
+          <h1 class="boys">BOYS</h1>
+          <h2 class="lizzo">LIZZO</h2>
+        </div>
+        <p class="pink">HTML</p>
+        <pre class="code-block p-space"><code>&lt;div class="album stripes"&gt;
+    &lt;h1 class="boys"&gt;BOYS&lt;/h1&gt;
+    &lt;h2 class="lizzo"&gt;LIZZO&lt;/h2&gt;
+&lt;/div	&gt;</code></pre>
+        <p class="pink">CSS</p>
+        <pre class="code-block p-space"><code>.stripes 	&#123;
+    background: repeating-linear-gradient(
+        -60deg,
+        var(--clr-hotpink),
+        var(--clr-hotpink) 4%,
+        var(--clr-cyan) 4%,
+        var(--clr-cyan) 12%,
+        var(--clr-yellow) 12%,
+        var(--clr-yellow) 20%,
+        var(--clr-blue) 20%,
+        var(--clr-blue) 28%,
+        var(--clr-green) 28%,
+        var(--clr-green) 36%,
+        var(--clr-red) 36%,
+        var(--clr-red) 44%,
+        var(--clr-pink) 44%,
+        var(--clr-pink) 52%,
+        var(--clr-black) 52%,
+        var(--clr-black) 60%,
+        var(--clr-hotpink) 60%,
+        var(--clr-hotpink) 68%,
+        var(--clr-cyan) 68%,
+        var(--clr-cyan) 76%,
+        var(--clr-orange) 76%,
+        var(--clr-orange) 84%,
+        var(--clr-blue) 84%,
+        var(--clr-blue) 92%,
+        var(--clr-green) 92%,
+        var(--clr-green) 100%
+        );
+    &#125;</code></pre>
+        <p class="p-space">
+          It may be hard to notice but in the original artwork, the stripes are
+          a bit darker on the bottom left corner. So I snuck in a
+          <code>pseudo-element</code> to create a very subtle grey overlay that
+          goes from 0 to .3 opacity using <code>rgba colors</code>. To do this I
+          had to first set the "album" <code>div</code> to
+          <code>position: relative</code>. I also had to change the z-index on
+          the "BOYS" and "LIZZO" text to <code>z-index: 10</code> so they
+          weren't effected by the opacity gradient.
+        </p>
+        <p class="pink">CSS</p>
+        <pre class="code-block p-space"><code>.album::before &#123;
+    --width: clamp(150px, 80vw, 500px);
+    content: '';
+    position: absolute;
+    width: var(--width);
+    height: var(--width);
+    background: linear-gradient(
+        -125deg,
+        var(--clr-grey-transparent),
+        var(--clr-grey-semi)
+        );
+    z-index: 0;
+  &#125;</code></pre>
+        <h3>Step three: Rainbow outline!</h3>
+        <p class="p-space">
+          The rainbow outline is achieved by using a combination of
+          <code>background-clip: text</code>,
+          <code>background-image: linear-gradient</code>, and
+          <code>webkit-text-stroke-color: transparent</code>.
+        </p>
+        <p class="p-space">
+          I created two classes, <code>rainbow-outline-lg</code> and
+          <code>rainbow-outline-sm</code> to add to my “BOYS” and “LIZZO” text.
+          They are very similar but the class for “BOYS” has one additional
+          color in its <code>linear-gradient</code> and the rainbow outline is
+          slightly thicker to accommodate the larger text. The
+          <code>stroke width</code> uses <code>cqi</code> units so that it is
+          responsive.
+        </p>
+        <div class="album stripes">
+          <h1 class="boys rainbow-outline-lg">BOYS</h1>
+          <h2 class="lizzo rainbow-outline-sm">LIZZO</h2>
+        </div>
+        <p class="pink">HTML</p>
+        <pre class="code-block p-space"><code>&lt;div class="album stripes"&gt;
+    &lt;h1 class="boys rainbow-outline-lg"&gt;BOYS&lt;/h1&gt;
+    &lt;h2 class="lizzo rainbow-outline-sm"&gt;LIZZO&lt;/h2&gt;
+&lt;/div&gt;</code></pre>
+        <p class="pink">CSS</p>
+        <pre class="code-block p-space"><code>.rainbow-outline-lg &#123;
+    background-clip: text;
+    background-image: linear-gradient(
+        to right,
+        var(--clr-pink),
+        var(--clr-hotpink),
+        var(--clr-red),
+        var(--clr-yellow),
+        var(--clr-hotpink)
+        );
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: 0.8cqi;
+    &#125;
+          
+.rainbow-outline-sm &#123;
+    background-clip: text;
+    background-image: linear-gradient(
+        to right,
+        var(--clr-pink),
+        var(--clr-hotpink),
+        var(--clr-red),
+        var(--clr-orange)
+        );
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: 0.4cqi;
+    &#125;
+          </code></pre>
+        <div class="album2 stripes">
+          <h1 class="line1 rainbow-outline-sm">SEE YOU COWGIRL</h1>
+          <h2 class="line2 rainbow-outline-sm">SOMEDAY, SOMEWHERE!</h2>
+        </div>
+      </section>
+      <Footer></Footer>
+    </div>
+  </body>
+</html>

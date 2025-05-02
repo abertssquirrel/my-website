@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+@font-face {
+  font-family: daft font;
+  src: url(assets/fonts/Daft\ Font.TTF);
+}
+:root {
+  --clr-dp-black: rgb(8, 1, 0);
+  --clr-dp-darkblack: rgb(20, 5, 3);
+  --clr-dp-midblack: rgb(32, 22, 26);
+  --clr-dp-lightblack: rgb(41, 33, 36);
+  --clr-dp-outline: rgb(247, 247, 169);
+  --clr-background: rgb(247, 247, 169);
+  --clr-dp-txt: rgb(184, 7, 22);
+  --clr-dp-txtshd-dark: rgb(78, 1, 8);
+  --clr-dp-txtshd-mid: rgb(247, 102, 114);
+  --clr-dp-txtshd-light: rgb(245, 192, 171);
+
+  --font-dp: daft font, cursive;
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One';
+}
+
+/*reset*/
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* MY STYLES :) */
+
+body {
+  background-color: var(--clr-background);
+}
+
+.body-wrapper {
+  padding-inline: 2rem;
+  max-width: 1200px;
+  margin-inline: auto;
+  position: relative;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  list-style: none;
+}
+
+header a {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  color: var(--clr-dp-black);
+  -webkit-text-stroke: 0.3em var(--clr-dp-txt);
+  font-family: var(--font-handwriting);
+  text-decoration: none;
+  paint-order: stroke;
+}
+
+header a:hover,
+header a:focus-visible {
+  -webkit-text-stroke: 0.3em var(--clr-dp-txtshd-mid);
+}
+
+.heading {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.heading h1 {
+  font-family: var(--font-pumpkin);
+  font-size: clamp(2.2rem, 7vw + 1rem, 12rem);
+  line-height: 0.8;
+  color: var(--clr-dp-black);
+  text-transform: uppercase;
+  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txt),
+    -0.03em -0.03em 0 var(--clr-dp-txtshd-light);
+  border-radius: 1rem;
+
+  margin-bottom: 3rem;
+}
+
+.heading h2 {
+  font-family: var(--font-pumpkin);
+  font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
+  line-height: 0.9;
+  color: var(--clr-dp-black);
+
+  border-radius: 1rem;
+}
+
+.dp-font {
+  font-family: var(--font-dp);
+}
+
+.how-to .grid-wrapper {
+  --min-column-size: 550px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--min-column-size), 100%), 1fr)
+  );
+}
+.how-to p {
+  color: var(--clr-dp-black);
+  font-family: var(--font-handwriting);
+  text-shadow: 1px 1px 0px var(--clr-dp-txt), 2px 2px 0px var(--clr-dp-txt);
+  border-radius: 1rem;
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
+  padding-inline: 0.5rem;
+  max-width: 75ch;
+}
+
+.p-space {
+  margin-bottom: 2rem;
+}
+
+code {
+  font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+  text-shadow: 1px 1px 0px var(--clr-dp-txt), 2px 2px 0px var(--clr-dp-txt);
+}
+
+.code-block {
+  background-color: var(--clr-dp-black);
+  color: var(--clr-background);
+  border-radius: 0.2em;
+  overflow-x: scroll;
+  padding: 1rem;
+  code {
+    font-size: 1rem;
+  }
+}
+
+.how-to a {
+  color: var(--clr-dp-black);
+  font-weight: 800;
+  text-decoration-style: wavy;
+}
+
+.how-to a:hover,
+.how-to a:focus-visible {
+  color: var(--clr-dp-txtshd-mid);
+}
+
+.how-to h3 {
+  font-family: var(--font-pumpkin);
+  font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
+  line-height: 0.9;
+  color: var(--clr-dp-black);
+
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  margin-block: 4rem;
+}
+
+.album-art {
+  --photo-width: clamp(260px, 35vw, 500px);
+  margin: 1.5rem;
+  align-self: center;
+  justify-self: center;
+  width: var(--photo-width);
+  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
+}
+
+.tiltRight {
+  rotate: -2deg;
+}
+
+.tiltLeft {
+  rotate: 2deg;
+}
+
+.album {
+  display: grid;
+  align-items: center;
+  width: 80vw;
+  max-width: 500px;
+  height: 80vw;
+  max-height: 500px;
+  background: radial-gradient(
+    var(--clr-dp-lightblack),
+    var(--clr-dp-midblack),
+    var(--clr-dp-darkblack),
+    var(--clr-dp-black)
+  );
+  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
+  border-radius: 0.2em;
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
+.album2 {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  height: 30vw;
+  max-height: 500px;
+  background: radial-gradient(
+    var(--clr-dp-lightblack),
+    var(--clr-dp-midblack),
+    var(--clr-dp-darkblack),
+    var(--clr-dp-black)
+  );
+  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
+  border-radius: 0.2em;
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
+.text {
+  position: relative;
+  z-index: 0;
+}
+
+.wrong-placement {
+  position: relative;
+  z-index: 0;
+}
+
+.album h1,
+.album2 h1 {
+  line-height: 0.8;
+  font-size: clamp(3rem, 12vw + 1rem, 8rem);
+  color: var(--clr-dp-txt);
+  text-shadow: -0.01em -0.02em 0em var(--clr-dp-txtshd-dark),
+    0.01em 0.01em 0.01em var(--clr-dp-txtshd-mid),
+    0.03em 0.03em 0.01em var(--clr-dp-txtshd-light);
+  font-family: var(--font-dp);
+  text-align: center;
+}
+
+/* black outline*/
+.daft::before,
+.punk::before {
+  content: attr(data-title);
+  position: absolute;
+  color: var(--clr-dp-black);
+
+  -webkit-text-stroke: 0.3em var(--clr-dp-black);
+  z-index: -10;
+}
+
+/* yellow outline */
+.daft::after,
+.punk::after {
+  content: attr(data-title);
+  position: absolute;
+
+  color: var(--clr-dp-outline);
+  translate: -100% 0;
+  -webkit-text-stroke: 0.35em var(--clr-dp-outline);
+  z-index: -20;
+}

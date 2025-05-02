@@ -1,0 +1,60 @@
+---
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import "/src/styles/reset.css"
+import "/src/styles/style.css"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Nelly's Homepage</title>
+	</head>
+	<body>
+		<section class="bg-white">
+			<Header></Header>
+		  <div class="text">
+			<h1>Hello!</h1>
+			<p class="p-space">
+			  Welcome to my website. My name is Janelle and I love making things in
+			  <a href="/cssfun.html">CSS</a>.
+			</p>
+			<h2>BACKSTORY</h2>
+			<p class="p-space">
+			  I have a degree in botany and worked on a fruit and veggie farm for 18
+			  years until the owners retired. Because of a recurring shoulder injury
+			  I decided to learn front end web development. And you may ask what business does some farm
+			  worker have designing websites? And to that I say “have you seen my
+			  <a href="pumpkins.html">pumpkins</a>?!”
+			</p>
+			<p>
+			  Alas I spend far too much time trying to recreate interesting layouts
+			  I see in
+			  <button popovertarget="ranmaPop" popovertargetaction="show">
+				anime
+			  </button>
+			  with CSS and svgs, rather than learning the ins and outs of
+			  javascript.
+			</p>
+			<div id="ranmaPop" popover class="ranma">
+			  <p>This page was inspired by...</p>
+			  <h3>RANMA 1/2</h3>
+			  <img
+				src="assets/photos/ranma-inspiration.jpg"
+				alt="image from 'ranma
+			  1/2' with very similar backgrounds to my homepage"
+			  />
+			  <button popovertarget="ranmaPop" popovertargetaction="hide" autofocus>
+				CLOSE
+			  </button>
+			</div>
+			<Footer></Footer>
+		  </div>
+		</section>
+		<div class="bg-blue"></div>
+		<div class="bg-yellow"></div>
+	  </body>
+</html>

@@ -1,0 +1,34 @@
+<footer><nav>
+    <a href="#top">Back to top</a>
+  </nav>
+</footer>
+
+<style>
+    footer {
+  margin-block: 5rem;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+}
+
+footer a {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  font-weight: 800;
+  color: var(--clr-text, black);
+  text-decoration: none;
+  -webkit-text-stroke: 0.3em var(--clr-outline);
+  paint-order: stroke;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  -webkit-text-stroke-color: var(--clr-outline-accent);
+}
+
+</style>

@@ -1,0 +1,38 @@
+<header>
+    <a id="top"></a>
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/cssfun.html">css fun</a></li>
+        <li><a href="/pumpkins.html">pumpkins</a></li>
+        <li><a href="#">plants</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <style>
+    header {
+        margin-top: 3rem;
+    }
+    header ul {
+        display: flex;
+        flex-direction: column;
+        text-align: end;
+        list-style: none;
+    }
+
+    header a {
+    font-family: var(--font-handwriting);
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+    font-weight: 800;
+    color: var(--clr-text);
+    text-decoration: none;
+    -webkit-text-stroke: 0.3em var(--clr-outline);
+    paint-order: stroke;
+    }
+
+    header a:hover,
+    header a:focus-visible {
+    -webkit-text-stroke-color: var(--clr-outline-accent);
+    }
+  </style>
