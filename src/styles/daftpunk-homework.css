@@ -15,6 +15,11 @@
   --clr-dp-txtshd-mid: rgb(247, 102, 114);
   --clr-dp-txtshd-light: rgb(245, 192, 171);
 
+  /*header and footer colors*/
+  --clr-text: var(--clr-dp-black);
+  --clr-outline: var(--clr-dp-txt);
+  --clr-outline-accent: var(--clr-dp-txtshd-mid);
+
   --font-dp: daft font, cursive;
   --font-handwriting: 'Indie Flower', cursive;
   --font-pumpkin: 'Cherry Bomb One';
@@ -153,7 +158,7 @@ header a:focus-visible {
   font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
   line-height: 0.9;
   color: var(--clr-dp-black);
-
+  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txtshd-mid);
   border-radius: 1rem;
 }
 
@@ -190,6 +195,7 @@ code {
 
 .code-block {
   background-color: var(--clr-dp-black);
+  outline: solid 2px var(--clr-dp-txt);
   color: var(--clr-background);
   border-radius: 0.2em;
   overflow-x: scroll;
@@ -215,7 +221,7 @@ code {
   font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
   line-height: 0.9;
   color: var(--clr-dp-black);
-
+  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txt);
   border-radius: 1rem;
   padding-inline: 1rem;
   margin-block: 4rem;
@@ -228,14 +234,6 @@ code {
   justify-self: center;
   width: var(--photo-width);
   box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
-}
-
-.tiltRight {
-  rotate: -2deg;
-}
-
-.tiltLeft {
-  rotate: 2deg;
 }
 
 .album {
