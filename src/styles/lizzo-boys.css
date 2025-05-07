@@ -26,12 +26,12 @@
 /* MY STYLES :) */
 
 body {
-  background-color: white;
+  background-color: var(--clr-pink);
   height: 100%;
   background-image: url(../../public/assets/svgs/boys-bg.svg);
+  background-size: 60vw;
+  background-position: -15vw 5rem;
   background-repeat: no-repeat;
-  background-size: 80vw;
-  background-position: 0px 100px;
 }
 
 .body-wrapper {
@@ -91,6 +91,7 @@ header a:focus-visible {
   font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
   line-height: 0.9;
   color: var(--clr-dp-black);
+  text-shadow: 0.05em 0.05em 0 var(--clr-cyan);
 
   border-radius: 1rem;
 }
@@ -122,7 +123,7 @@ header a:focus-visible {
   font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
   line-height: 0.9;
   color: var(--clr-black);
-
+  text-shadow: 0.05em 0.05em 0 var(--clr-cyan);
   border-radius: 1rem;
   padding-inline: 1rem;
   margin-block: 4rem;
