@@ -25,76 +25,6 @@
   --font-pumpkin: 'Cherry Bomb One';
 }
 
-/*reset*/
-/* 1. Use a more-intuitive box-sizing model */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
-
-body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 5. Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* 6. Inherit fonts for form controls */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* 7. Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 8. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/*
-    9. Create a root stacking context
-  */
-#root,
-#__next {
-  isolation: isolate;
-}
-
 /* MY STYLES :) */
 
 body {
@@ -106,29 +36,6 @@ body {
   max-width: 1200px;
   margin-inline: auto;
   position: relative;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  list-style: none;
-}
-
-header a {
-  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-  color: var(--clr-dp-black);
-  -webkit-text-stroke: 0.3em var(--clr-dp-txt);
-  font-family: var(--font-handwriting);
-  text-decoration: none;
-  paint-order: stroke;
-}
-
-header a:hover,
-header a:focus-visible {
-  -webkit-text-stroke: 0.3em var(--clr-dp-txtshd-mid);
 }
 
 .heading {

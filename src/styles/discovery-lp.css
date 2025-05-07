@@ -6,6 +6,10 @@
   --clr-textshadow1: rgba(74, 122, 255, 0.9);
   --clr-textshadow2: rgb(250, 154, 90, 0.9);
 
+  /*header and footer colors*/
+  --clr-outline: var(--clr-textshadow1);
+  --clr-outline-accent: var(--clr-textshadow2);
+
   --clr-orange1: rgba(250, 154, 90, 0.5);
   --grad-orange1: linear-gradient(
     180deg,
@@ -67,76 +71,6 @@
   --font-pumpkin: 'Cherry Bomb One';
 }
 
-/*reset*/
-/* 1. Use a more-intuitive box-sizing model */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
-
-body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 5. Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* 6. Inherit fonts for form controls */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* 7. Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 8. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/*
-    9. Create a root stacking context
-  */
-#root,
-#__next {
-  isolation: isolate;
-}
-
 /* MY STYLES :) */
 
 body {
@@ -149,29 +83,6 @@ body {
   padding-inline: 2rem;
   max-width: 1200px;
   margin-inline: auto;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  list-style: none;
-}
-
-header a {
-  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-  color: var(--clr-text);
-  -webkit-text-stroke: 0.3em var(--clr-textshadow1);
-  font-family: var(--font-handwriting);
-  text-decoration: none;
-  paint-order: stroke;
-}
-
-header a:hover,
-header a:focus-visible {
-  -webkit-text-stroke: 0.3em var(--clr-textshadow2);
 }
 
 .heading {
@@ -188,10 +99,6 @@ header a:focus-visible {
   font-size: clamp(2.2rem, 7vw + 1rem, 12rem);
   line-height: 0.8;
   color: var(--clr-text);
-  /*
-  -webkit-text-stroke: 0.1em var(--clr-text);
-  paint-order: stroke;
-  */
   text-transform: uppercase;
 
   text-shadow: 0.05em 0.05em 0 var(--clr-textshadow1),
@@ -282,6 +189,7 @@ code {
 
 .code-block {
   background-color: var(--clr-text);
+  outline: solid 2px var(--clr-textshadow1);
   color: white;
   border-radius: 0.2em;
   overflow-x: scroll;
