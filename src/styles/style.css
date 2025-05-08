@@ -103,6 +103,18 @@ h2 {
   paint-order: stroke;
 }
 
+.nelly-tasha {
+  background: url(assets/photos/tasha-nelly.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--bg-pink);
+  background-blend-mode: darken;
+  width: clamp(50px, 50vw, 500px);
+  height: clamp(50px, 50vw, 500px);
+  margin-inline: auto;
+  border-radius: 1rem;
+}
+
 p {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
