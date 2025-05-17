@@ -1,0 +1,97 @@
+---
+const {story} = Astro.props;
+const id = `madlib-${ Math.random().toString(36).slice(2, 11)}`
+---
+
+<form class="story" id={id}>
+    {
+        story.map(paragraph => <p>{
+                paragraph.map((line, i) => {
+                    if (i % 2 === 0) {
+                        return line
+                    } else {
+                        return <input class="word-type" type="text" placeholder={line}/>
+                    }
+                })
+        }</p>)
+    }
+    <button class="space button reveal">reveal story</button>
+    <input
+        class="space button"
+        type="reset"
+        value="clear words"
+        accesskey="r"
+    />
+</form>
+
+<script define:vars={{id}}>
+    const formElem = document.getElementById(id);
+    const revealBtn = formElem.querySelector(`.reveal`);
+    const storyText = formElem;
+
+    revealBtn.addEventListener('click', reveal);
+
+    function reveal(event) {
+        event.preventDefault();
+        if (revealBtn.innerHTML == 'reveal story') {
+            storyText.style['font-family'] = 'var(--font-handwriting)';
+            revealBtn.innerHTML = 'hide story';
+            return;
+        } else {
+            storyText.style['font-family'] = 'var(--font-squiggle)';
+            revealBtn.innerHTML = 'reveal story';
+            return;
+        }
+    }
+
+</script>
+
+<style>
+.story {
+  max-width: 75ch;
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-decoration: none;
+  font-family: var(--font-squiggle);
+  font-weight: 700;
+margin-bottom: 3rem;
+}
+
+.word-type {
+  text-align: center;
+  font-family: var(--font-handwriting);
+  color: var(--accent-pink);
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  -webkit-text-stroke-width: 0.01em;
+  font-weight: 800;
+  border: none;
+  background-color: transparent;
+  width: 20ch;
+  padding-left: 1rem;
+}
+
+input[type=text]:focus-visible {
+  outline: 3px solid var(--bg-pink);
+  border-radius: 10px;
+}
+
+.button {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+  font-family: var(--font-handwriting);
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--bg-pink);
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-block: 0.25rem;
+  padding-inline: 1rem;
+}
+
+.button:hover,
+.button:focus-visible {
+  color: var(--accent-pink);
+  background-color: var(--bg-yellow);
+}
+</style>

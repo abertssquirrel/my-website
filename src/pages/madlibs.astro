@@ -1,0 +1,90 @@
+---
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import "/src/styles/reset.css"
+import "/src/styles/madlibs.css"
+import Madlib from '../components/madlib.astro'
+
+import { MadLibs } from '../madlibs'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mad Libs</title>
+	</head>
+    <body>
+        <div class="body-wrapper">
+            <Header></Header>
+            <img class="ed-smile" src="../../public/assets/svgs/ed-smile-pink.svg" alt="">
+            <div class="heading">
+                <h1>MAD LIBS</h1>
+            </div>
+    
+            
+               {/*  <details name="madlibs">
+      <summary>sicknote</summary>
+      <form class="story">
+        <p>
+          Magnus is
+          <input class="word-type" type="text" placeholder="adverb" /> ill, and
+          won’t be in school today. Last night he ate a very
+          <input class="word-type" type="text" placeholder="adjective" /> piece
+          of ham, and now his palms are
+          <input class="word-type" type="text" placeholder="adjective" />, his
+          tongue is <input class="word-type" type="text" placeholder="color" />,
+          and his temperature is a constant
+          <input class="word-type" type="text" placeholder="number" /> degrees.
+          Please <input class="word-type" type="text" placeholder="verb" /> for
+          his survival.
+        </p>
+        <p>
+          Have a lovely
+          <input class="word-type" type="text" placeholder="noun" />!
+        </p>
+        <p>Sincerely,</p>
+        <p>Magnus' mom</p>
+
+        <button class="space button" id="reveal-btn">reveal story</button>
+        <input
+          class="space button"
+          type="reset"
+          value="clear words"
+          accesskey="r"
+        />
+      </form>
+    </details>
+    <details name="madlibs">
+      <summary>shortcut</summary>
+       <form class="story">
+        If you want to get to the <input class="word-type" type="text" placeholder="place" /> before dark you’ll have to cut through
+        the <input class="word-type" type="text" placeholder="adjective"/> landfill. But be aware there are three guard <input class="word-type" type="text" placeholder="plural noun"/>, so bring something <input class="word-type" type="text" placeholder="adjective"/> for them to eat. Once you’re
+        through the landfill take a left at the giant sculpture of <input class="word-type" type="text" placeholder="person" />, and
+        <input class="word-type" type="text" placeholder="verb"/> under the <input class="word-type" type="text" placeholder="adjective"/> fence. Walk <input class="word-type" type="text" placeholder="adverb"/> through the
+        <input class="word-type" type="text" placeholder="adjective"/> parking lot, and your destination will be to the right.
+      </p>
+              <button class="space button" id="reveal-btn">reveal story</button>
+        <input
+          class="space button"
+          type="reset"
+          value="clear words"
+          accesskey="r"
+        />
+      </form>
+      <p>
+    </details>*/}
+    {
+      MadLibs.map(madlib => 
+        <details name="madlibs">
+          <summary>{madlib.title}</summary>
+          <Madlib story={madlib.story}/>
+        </details>
+      )
+    }
+    <Footer></Footer>
+        </div>
+    </body>
+</html>

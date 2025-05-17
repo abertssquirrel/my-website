@@ -43,6 +43,7 @@ body {
 
   z-index: 10;
 
+  /*wavy sides*/
   --mask: radial-gradient(55.9px at 75px 50%, #000 99%, #0000 101%) 0
       calc(50% - 50px) / 51% 100px repeat-y,
     radial-gradient(55.9px at -50px 50%, #0000 99%, #000 101%) 25px 50% /

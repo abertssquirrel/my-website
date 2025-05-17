@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+:root {
+  --bg-pink: rgb(252, 193, 225);
+  --bg-blue: rgb(140, 189, 218);
+  --bg-lightblue: rgb(184, 208, 221);
+  --bg-yellow: rgb(224, 247, 23);
+  --accent-pink: rgb(250, 58, 116);
+  --outline: rgb(197, 58, 125);
+  --white: white;
+
+  /*header and footer colors*/
+  --clr-text: black;
+  --clr-outline: var(--bg-pink);
+  --clr-outline-accent: var(--bg-yellow);
+
+  --font-squiggle: 'Redacted Script', fantasy;
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One', system-ui;
+}
+
+/*My styles*/
+body {
+  background-image: url(../../public/assets/svgs/doodle-bg.svg),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      var(--bg-lightblue) 30px,
+      var(--bg-lightblue) 32px
+    );
+  background-size: 800px;
+  color: black;
+  font-family: var(--font-handwriting);
+  margin-block: 0;
+}
+
+.body-wrapper {
+  max-width: 800px;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.space {
+  margin-top: 2rem;
+}
+
+h1 {
+  font-family: var(--font-pumpkin);
+  font-size: clamp(2.5rem, 11vw + 1rem, 9rem);
+  line-height: 0.8;
+  color: black;
+  text-shadow: 1px 1px 0 var(--bg-yellow), 2px 2px 0 var(--bg-yellow),
+    3px 3px 0 var(--bg-yellow), -1px -1px 0 var(--bg-pink),
+    -2px -2px 0 var(--bg-pink), -3px -3px 0 var(--bg-pink);
+  text-transform: uppercase;
+  paint-order: stroke;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.ed-smile {
+  float: right;
+  shape-outside: circle();
+  width: 45%;
+  margin: 1rem;
+  margin-top: 2rem;
+  rotate: 10deg;
+  filter: drop-shadow(3px 3px 0px var(--bg-blue));
+}
+
+summary {
+  font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+  font-weight: 800;
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  cursor: pointer;
+}
+
+summary::marker {
+  content: '* ';
+}
+
+summary:hover,
+summary:focus-visible {
+  color: var(--accent-pink);
+}
