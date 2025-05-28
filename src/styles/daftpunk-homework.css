@@ -4,25 +4,41 @@
   src: url(assets/fonts/Daft\ Font.TTF);
 }
 :root {
-  --clr-dp-black: rgb(8, 1, 0);
+  --clr-dp-black: black;
   --clr-dp-darkblack: rgb(20, 5, 3);
   --clr-dp-midblack: rgb(32, 22, 26);
   --clr-dp-lightblack: rgb(41, 33, 36);
   --clr-dp-outline: rgb(247, 247, 169);
-  --clr-background: rgb(247, 247, 169);
+
+  --clr-background: black;
   --clr-dp-txt: rgb(184, 7, 22);
   --clr-dp-txtshd-dark: rgb(78, 1, 8);
   --clr-dp-txtshd-mid: rgb(247, 102, 114);
   --clr-dp-txtshd-light: rgb(245, 192, 171);
+
+  --clr-bg-code: rgb(73, 16, 33, 0.6);
 
   /*header and footer colors*/
   --clr-text: var(--clr-dp-black);
   --clr-outline: var(--clr-dp-txt);
   --clr-outline-accent: var(--clr-dp-txtshd-mid);
 
+  --bg-pink: rgb(252, 193, 225);
+  --bg-blue: rgb(140, 189, 218);
+  --bg-yellow: rgb(224, 247, 23);
+  --accent-pink: rgb(250, 58, 116);
+
+  --white: white;
+
+  /*header and footer colors*/
+  --clr-text: black;
+  --clr-outline: rgb(252, 193, 225);
+  --clr-outline-accent: rgb(140, 189, 218);
+
   --font-dp: daft font, cursive;
   --font-handwriting: 'Indie Flower', cursive;
   --font-pumpkin: 'Cherry Bomb One';
+  --font-fake-dp: 'East Sea Dokdo';
 }
 
 /* MY STYLES :) */
@@ -36,6 +52,7 @@ body {
   max-width: 1200px;
   margin-inline: auto;
   position: relative;
+  container-type: inline-size;
 }
 
 .heading {
@@ -48,25 +65,52 @@ body {
 }
 
 .heading h1 {
+  position: relative;
   font-family: var(--font-pumpkin);
-  font-size: clamp(2.2rem, 7vw + 1rem, 12rem);
+  font-size: clamp(2.2rem, 8vw + 1rem, 10rem);
   line-height: 0.8;
   color: var(--clr-dp-black);
   text-transform: uppercase;
-  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txt),
-    -0.03em -0.03em 0 var(--clr-dp-txtshd-light);
-  border-radius: 1rem;
+  -webkit-text-stroke: 2px var(--bg-blue);
 
-  margin-bottom: 3rem;
+  /*text-shadow: -0.01em -0.02em 0em var(--bg-blue),
+    0.01em 0.01em 0.01em var(--bg-pink), 0.03em 0.03em 0.01em var(--bg-pink);
+*/
+}
+
+.title-wrapper {
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.heading .title1::before,
+.heading .title2::before {
+  content: attr(data-title);
+  position: absolute;
+  color: var(--clr-dp-black);
+  -webkit-text-stroke: 0.3em var(--clr-dp-black);
+  overflow-wrap: anywhere;
+  z-index: -10;
+}
+
+.heading .title1::after,
+.heading .title2::after {
+  content: attr(data-title);
+  position: absolute;
+  color: var(--bg-pink);
+  -webkit-text-stroke: 0.4em var(--bg-pink);
+  left: 0;
+  top: 0;
+  overflow-wrap: anywhere;
+  z-index: -20;
 }
 
 .heading h2 {
   font-family: var(--font-pumpkin);
   font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
   line-height: 0.9;
-  color: var(--clr-dp-black);
-  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txtshd-mid);
-  border-radius: 1rem;
+  color: var(--bg-blue);
+  text-shadow: 0.05em 0.05em 0 var(--accent-pink);
 }
 
 .dp-font {
@@ -82,28 +126,33 @@ body {
   );
 }
 .how-to p {
-  color: var(--clr-dp-black);
+  color: var(--bg-blue);
   font-family: var(--font-handwriting);
-  text-shadow: 1px 1px 0px var(--clr-dp-txt), 2px 2px 0px var(--clr-dp-txt);
-  border-radius: 1rem;
+  text-shadow: 1px 1px 0px var(--accent-pink);
   font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
   padding-inline: 0.5rem;
   max-width: 75ch;
+}
+
+.double {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-pink);
 }
 
 .p-space {
   margin-bottom: 2rem;
 }
 
+/*code styles*/
 code {
   font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
-  text-shadow: 1px 1px 0px var(--clr-dp-txt), 2px 2px 0px var(--clr-dp-txt);
+  text-shadow: 1px 1px 0px var(--accent-pink);
 }
 
 .code-block {
-  background-color: var(--clr-dp-black);
-  outline: solid 2px var(--clr-dp-txt);
-  color: var(--clr-background);
+  background-color: var(--clr-bg-code);
+  outline: solid 2px var(--accent-pink);
+  color: var(--white);
   border-radius: 0.2em;
   overflow-x: scroll;
   padding: 1rem;
@@ -112,115 +161,204 @@ code {
   }
 }
 
+.code-wrapper .code-caption {
+  font-family: var(--font-handwriting);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--clr-background);
+  -webkit-text-stroke: 6px var(--bg-pink);
+  paint-order: stroke;
+}
+
 .how-to a {
-  color: var(--clr-dp-black);
+  color: var(--bg-blue);
   font-weight: 800;
   text-decoration-style: wavy;
 }
 
 .how-to a:hover,
 .how-to a:focus-visible {
-  color: var(--clr-dp-txtshd-mid);
+  color: var(--clr-dp-txt);
 }
 
 .how-to h3 {
+  text-align: right;
   font-family: var(--font-pumpkin);
-  font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
+  font-size: clamp(1.5rem, 6vw + 1rem, 6rem);
   line-height: 0.9;
-  color: var(--clr-dp-black);
-  text-shadow: 0.05em 0.05em 0 var(--clr-dp-txt);
+  -webkit-text-stroke: 2px var(--bg-blue);
+  color: var(--clr-background);
+  text-shadow: 0.05em 0.05em 0 var(--bg-blue);
   border-radius: 1rem;
   padding-inline: 1rem;
   margin-block: 4rem;
 }
 
 .album-art {
-  --photo-width: clamp(260px, 35vw, 500px);
-  margin: 1.5rem;
-  align-self: center;
-  justify-self: center;
-  width: var(--photo-width);
-  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
+  float: right;
+  margin: 1em;
 }
 
-.album {
-  display: grid;
-  align-items: center;
-  width: 80vw;
-  max-width: 500px;
-  height: 80vw;
-  max-height: 500px;
-  background: radial-gradient(
-    var(--clr-dp-lightblack),
-    var(--clr-dp-midblack),
-    var(--clr-dp-darkblack),
-    var(--clr-dp-black)
-  );
-  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
-  border-radius: 0.2em;
-  margin-inline: auto;
-  margin-block: 4rem;
+.album-art > img {
+  width: 50cqi;
+  border: solid 2px var(--bg-blue);
+  border-radius: 10px;
 }
 
-.album2 {
-  display: grid;
-  align-items: center;
-  width: 100%;
-  height: 30vw;
-  max-height: 500px;
-  background: radial-gradient(
-    var(--clr-dp-lightblack),
-    var(--clr-dp-midblack),
-    var(--clr-dp-darkblack),
-    var(--clr-dp-black)
-  );
-  box-shadow: 0.2em 0.2em 1em 0em var(--clr-dp-lightblack);
-  border-radius: 0.2em;
-  margin-inline: auto;
-  margin-block: 4rem;
+.art-attempt {
+  float: left;
+  margin-right: 2.75em;
+  margin-bottom: 2.25em;
+  shape-outside: ellipse(46% 50.23%);
 }
 
-.text {
-  position: relative;
-  z-index: 0;
+.float-right {
+  float: right;
+  margin-right: 0em;
+  margin-left: 2.75em;
 }
 
-.wrong-placement {
-  position: relative;
-  z-index: 0;
+.art-attempt > img {
+  width: 50cqi;
+  border-radius: 50%;
+  border: solid 2px var(--bg-blue);
 }
 
-.album h1,
-.album2 h1 {
-  line-height: 0.8;
-  font-size: clamp(3rem, 12vw + 1rem, 8rem);
-  color: var(--clr-dp-txt);
-  text-shadow: -0.01em -0.02em 0em var(--clr-dp-txtshd-dark),
-    0.01em 0.01em 0.01em var(--clr-dp-txtshd-mid),
-    0.03em 0.03em 0.01em var(--clr-dp-txtshd-light);
-  font-family: var(--font-dp);
+.caption {
+  width: 45cqi;
   text-align: center;
+  font-family: var(--font-handwriting);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--clr-background);
+  -webkit-text-stroke: 6px var(--bg-pink);
+  paint-order: stroke;
+  margin-top: 1em;
+  margin-inline: auto;
 }
 
-/* black outline*/
-.daft::before,
-.punk::before {
+.daftpunk-svg {
+  width: 45cqi;
+  float: left;
+  margin-right: 2em;
+  shape-outside: polygon(
+    9.71% 0.78%,
+    17.68% 100.2%,
+    99.72% 95.44%,
+    96.69% 44.54%,
+    75.01% 29.59%,
+    42.56% 3.88%
+  );
+}
+
+@media screen and (max-width: 600px) {
+  .album-art,
+  .art-attempt {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-inline: auto;
+    float: none;
+  }
+  .album-art > img,
+  .art-attempt > img,
+  .daftpunk-svg {
+    margin-inline: auto;
+    width: 100cqi;
+    float: none;
+  }
+  .daftpunk-svg {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .caption {
+    width: 90cqi;
+    list-style: 1.5;
+  }
+}
+
+/*multiple text outlines*/
+
+.text-wrapper {
+  padding-right: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  float: left;
+  .caption {
+    width: 43cqi;
+    text-align: left;
+    margin-top: 2em;
+    margin-inline: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .text-wrapper {
+    padding: 0;
+    margin: 1rem;
+    display: block;
+    float: none;
+    .caption {
+      width: 80cqi;
+    }
+  }
+}
+
+h4 {
+  position: relative;
+  font-family: var(--font-pumpkin);
+  font-size: clamp(3rem, 20cqi, 7rem);
+  line-height: 0.8;
+  color: var(--clr-background);
+  text-transform: uppercase;
+  -webkit-text-stroke: 3px var(--accent-pink);
+  paint-order: stroke;
+  overflow-wrap: anywhere;
+}
+
+/*black outline*/
+.word1::before,
+.word2::before,
+.word3::before {
   content: attr(data-title);
   position: absolute;
-  color: var(--clr-dp-black);
-
-  -webkit-text-stroke: 0.3em var(--clr-dp-black);
+  color: var(--clr-background);
+  -webkit-text-stroke: 0.3em var(--clr-background);
   z-index: -10;
 }
 
-/* yellow outline */
-.daft::after,
-.punk::after {
+/*light pink outline*/
+.word1::after,
+.word2::after,
+.word3::after {
   content: attr(data-title);
   position: absolute;
-
-  color: var(--clr-dp-outline);
-  translate: -100% 0;
-  -webkit-text-stroke: 0.35em var(--clr-dp-outline);
+  color: var(--bg-pink);
+  -webkit-text-stroke: 0.4em var(--bg-pink);
+  left: 0;
+  top: 0;
+  overflow-wrap: anywhere;
   z-index: -20;
+}
+
+.bye {
+  font-family: var(--font-dp);
+  font-size: clamp(1.5rem, 10cqi, 5rem);
+  line-height: 0.9;
+  color: var(--clr-background);
+  text-shadow: -0.01em 0.01em 0 var(--accent-pink),
+    0.01em -0.01em 0.08em rgb(6, 187, 163);
+  text-align: center;
+  margin-top: 4rem;
+  background: linear-gradient(
+    120deg,
+    rgb(125, 248, 232),
+    rgb(200, 235, 247),
+    var(--bg-pink)
+  );
+  padding-block: 1em;
+  border-radius: 0.2em;
 }

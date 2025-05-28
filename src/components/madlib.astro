@@ -66,11 +66,29 @@ margin-bottom: 3rem;
   font-weight: 800;
   border: none;
   background-color: transparent;
-  width: 20ch;
-  padding-left: 1rem;
+  max-inline-size: 15ch;
+  padding-inline: 1ch;
+  margin-inline: .5ch;
 }
 
-input[type=text]:focus-visible {
+@supports (field-sizing: content) {
+  .word-type {
+    max-inline-size: 100%;
+    min-inline-size: 15ch;
+    field-sizing: content;
+  }
+}
+
+.word-type[type=text]:hover {
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue),
+  3px 3px 0px var(--bg-pink), 4px 4px 0px var(--bg-pink),
+  5px 5px 0px var(--bg-yellow), 6px 6px 0px var(--bg-yellow);
+}
+
+.word-type[type=text]:focus-visible {
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue),
+  3px 3px 0px var(--bg-pink), 4px 4px 0px var(--bg-pink),
+  5px 5px 0px var(--bg-yellow), 6px 6px 0px var(--bg-yellow);
   outline: 3px solid var(--bg-pink);
   border-radius: 10px;
 }

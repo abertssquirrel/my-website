@@ -17,256 +17,115 @@ import "/src/styles/daftpunk-homework.css"
     <div class="body-wrapper">
       <Header></Header>
       <div class="heading">
-        <h1>Album Art!!!</h1>
+        <div class="title-wrapper">
+          <h1 class="title1" data-title="ALBUM ART">ALBUM ART</h1>
+        </div>
         <h2>
           Recreating <span class="dp-font">Daft Punk's</span> "Homework" in CSS
         </h2>
       </div>
       <section class="how-to">
-        <div class="grid-wrapper">
-          <p>
-            I just found out I can download the daft punk logo font from this
-            <a href="https://www.dafont.com/daft-font.font">website</a>, so I’m
-            going to attempt to recreate the text stylings from Daft Punk’s
-            “Homework”.
-          </p>
+        <figure class="album-art">
           <img
-            class="album-art"
             src="/assets/photos/album-art/daftpunk-homework.jpg"
             alt="the album art from daft punk's 'homework'"
           />
-        </div>
+          <figcaption class="caption">The album art from daft punk's "Homework"</figcaption>
+          </figure>
+          <p class="p-space">
+            I found a <a href="https://www.dafont.com/daft-font.font">website</a> where you could download the font used for the daft punk logo. I immediately downloaded it and began trying to recreate the cover art from their first album “Homework” using just html and css.</p>
+          <p class="p-space">It’s a fairly simple design, just some reddish text with two outlines, one black, one yellow.  Sure, <code>webkit-text-stroke</code> only lets you put one outline around your text, and who cares if I have to force the stacked text to have one stacking context.  This is nothing <code>pseudo-elements</code> and a <code>z-index</code> can’t solve. 
+          </p>
+          <figure class="art-attempt">
+          <img
+        src="/assets/images/daftpunk-firefox.png"
+        alt="a screenshot of what my css version of daft punk's 'homework' looks like in firefox"/>
+        <figcaption class="caption">screenshot from firefox</figcaption>
+        </figure>
         <p class="p-space">
-          It looks simple enough. Reddish text with a black and yellow outline.
-          What could go wrong.
+            I was so delighted when my first attempt came out looking pretty close, that I wrote up a blog post and smuggly included all my code.
         </p>
         <p>
-          Ok well first <code>-webkit-text-stroke</code> only lets you put one
-          text stroke on your text. And second, the Daft Punk logo takes up two
-          lines, meaning if you manage to get your black and yellow text-strokes
-          to work, the bottom line “punk” is going to overlap in front of the
-          top line “daft” and just look silly. But it's fine we can do this.
+          Then, while tidying up my website… I noticed it.  Chrome butchered my daft punk outlines!  But whatever it’s fine, it’s just Chrome.
         </p>
-        <h3>Step one: Get font!</h3>
+        <h3>It's not fine!</h3>
+        <figure class="art-attempt float-right">
+        <img
+        src="/assets/images/daftpunk-chrome.png"
+        alt="a screenshot of what my css version of daft punk's 'homework' looks like in chrome"/>
+        <figcaption class="caption">screenshot from chrome</figcaption>
+        </figure>
+        <p class="p-space">It looks like some poor left handed kid tried to make due with a dull pair or right-handed scissors</p>
         <p class="p-space">
-          I never downloaded a font before and it was surprisingly simple. I
-          just went to this
-          <a href="https://www.dafont.com/daft-font.font">website</a> downloaded
-          the file, then copied the TTF file to my assets folder on my website.
+          I like to work on my websites in firefox, usually I put them in chrome just to check if everything is in order, but for some reason I plumb forgot to see my daft punk logo looked the same on chrome.
         </p>
-        <p class="p-space">To use the font, I just wrote a tiny bit of css</p>
-        <pre class="code-block p-space"><code>@font-face &#123;
-    font-family: daft font;
-    src: url(assets/fonts/Daft\ Font.TTF);
-&#125;</code></pre>
-        <p class="p-space">
-          Now I can just set <code>font-family: daft font;</code>
-        </p>
-        <p>
-          And voila!
-          <span class="dp-font">I can use this daft punk font.</span>
-        </p>
-
-        <h3>Step two: Text-shadows</h3>
-        <p class="p-space">
-          I want an easy win, so I think I will add some text shadows to "daft
-          punk" to give it a little more dimension. And you may be thinking
-          that's foolish! Once you add the text strokes you won't be able to see
-          those text shadows. And yes normally that would be true, but I'm not
-          planning on using text-stroke on my actual text... so let's pick some
-          colors and make some shadows!
-        </p>
-        <p class="p-space">
-          I added a dark red text-shadow to the top, and two differnt light red
-          text-shadows to the bottom of the text.
-        </p>
-
-        <div class="album">
-          <div class="text">
-            <h1>daft</h1>
-            <h1>punk</h1>
+        <p class="p-space">Turns out <code>webkit-text-stroke</code> is handled a bit differently between the two web browsers.  Firefox smooths things out quite a bit more.  Normally this isn’t all that noticeable, but with spikier fonts it becomes very obvious.  And I absolutely <span class="double">refuse</span> to use text shadows to create text outlines (i tried, it looked even worse).</p>
+         <img
+            class="daftpunk-svg"
+            src="/assets/svgs/daftpunk-reaction.svg"
+            alt="doodles of the daft punk robot helments, looking sad'"
+          />
+        <p class="p-space">So I give up, you can’t make the daft punk “homework” artwork with just some simple CSS.  And there go my dreams of making all my <code>H1's</code> look like the robots’ first album.</p>
+        <p class="p-space">But atleast I learned how to make multiple text outlines… so long as the font isn’t too jagged.</p>
+        <h3>Making multiple text outlines, so long as the font isn't too jagged</h3>
+        <p class="p-space">If I wanted perfection in my title stylings I could lovingly design them in Inkscape, but I don’t want perfect, I want something easy to replicate, I want good enough.  As hinted at before, the trick to making multiple outlines on text is to use a ::before and ::after pseudo-element.</p>
+        <p class="p-space">You just have to make sure to set the content property of your pseudo-elements to whatever text you’re trying to outline.  So if I have an <code>H4</code> tag set to “ROCK!!”, my pseudo-element’s content should also equal “ROCK!!”.</p>
+        <figure class="text-wrapper">
+          <div>
+            <h4 class="word1" data-title="ROCK!!">ROCK!!</h4>
+            <h4 class ="word2" data-title="ROBOT">ROBOT</h4>
+            <h4 class ="word3" data-title="ROCK!!">ROCK!!</h4>
           </div>
-        </div>
-        <p class="code">CSS</p>
-        <pre class="code-block p-space"><code>:root &#123;
-    --clr-dp-black: rgb(8, 1, 0);
-    --clr-dp-darkblack: rgb(20, 5, 3);
-    --clr-dp-midblack: rgb(32, 22, 26);
-    --clr-dp-lightblack: rgb(41, 33, 36);
-    --clr-dp-outline: rgb(247, 247, 169);
-    --clr-background: rgb(247, 247, 169);
-    --clr-dp-txt: rgb(184, 7, 22);
-    --clr-dp-txtshd-dark: rgb(78, 1, 8);
-    --clr-dp-txtshd-mid: rgb(247, 102, 114);
-    --clr-dp-txtshd-light: rgb(245, 192, 171);
-      
-    --font-dp: daft font, cursive;
-&#125;
-    
-.album h1 &#123;
-    line-height: 0.8;
-    font-size: clamp(3rem, 12vw + 1rem, 8rem);
-    color: var(--clr-dp-txt);
-    text-shadow: -0.01em -0.02em 0em var(--clr-dp-txtshd-dark),
-      0.01em 0.01em 0.01em var(--clr-dp-txtshd-mid),
-      0.03em 0.03em 0.01em var(--clr-dp-txtshd-light);
-    font-family: var(--font-dp);
-    text-align: center;
-&#125;</code></pre>
-
-        <h3>Step three: Two text-strokes!?</h3>
-        <p class="p-space">
-          Now for the tricky part, adding two differnt text-strokes. To do this
-          I'm going to be using <code>::before</code> and
-          <code>::after</code> psuedo elements.
-        </p>
-        <p class="p-space">
-          First let's take a peek at how I've been setting up the album art in
-          html
-        </p>
-        <p class="code">HTML</p>
-        <pre class="code-block p-space"><code>&lt;div class="album"&#62;
-    &lt;div class="text"&#62;
-        &lt;h1 class="daft" data-title="daft"&#62;daft&lt;/h1&#62;
-        &lt;h1 class="punk" data-title="punk"&#62;punk&lt;/h1&#62;
-    &lt;/div&#62;
-&lt;/div&#62;</code></pre>
-        <p class="p-space">
-          We're going to use the <code>data-title</code> attribute to auto fill
-          the <code>content</code> property in our pseudo elements. Often we
-          leave the <code>content</code> property blank, but in this case I want
-          it to contain the same text as my <code>H1</code> element because we
-          are going to put our text-stroke on it.
-        </p>
-        <p class="code">CSS</p>
-        <pre class="code-block p-space"><code>/* black outline*/
-.daft::before,
-.punk::before &#123;
-    content: attr(data-title);
-    position: absolute;
-    color: var(--clr-dp-black);
-    -webkit-text-stroke: 0.3em var(--clr-dp-black);
-    z-index: -10;
+            <figcaption class="caption">The above text has a hotpink, black, and light pink outline!</figcaption>
+        </figure>
+        <p class="p-space">Because I have multiple heading tags in my example I chose to use the <code>data-title</code> attribute in my html to auto populate the <code>content</code> property in my CSS.  Then it is just a matter of placing the pseudo-elements relative to their corresponding html tag using <code>position: absolute</code> and setting their position and <code>z-index</code> accordingly.  </p>
+        <figure class="code-wrapper p-space">
+          <figcaption class="code-caption">HTML</figcaption>
+          <pre class="code-block p-space"><code>&lt;h4 class="word1" data-title="ROCK!!"&gt;ROCK!!&lt;/h4&gt;
+&lt;h4 class ="word2" data-title="ROBOT"&gt;ROBOT&lt;/h4&gt;
+&lt;h4 class ="word3" data-title="ROCK!!"&gt;ROCK!!&lt;/h4&gt;</code></pre>
+        </figure>
+        <figure class="code-wrapper p-space">
+          <figcaption class="code-caption">CSS</figcaption>
+        <pre class="code-block p-space"><code>h4 &#123;
+  position: relative;
+  font-family: var(--font-pumpkin);
+  font-size: clamp(3rem, 20cqi, 7rem);
+  line-height: 0.8;
+  color: var(--clr-background);
+  text-transform: uppercase;
+  -webkit-text-stroke: 3px var(--accent-pink);
+  paint-order: stroke;
+  overflow-wrap: anywhere;
 &#125;
 
-/* yellow outline */
-.daft::after,
-.punk::after &#123;
-    content: attr(data-title);
-    position: absolute;
-    color: var(--clr-dp-outline);
-    translate: -100% 0;
-    -webkit-text-stroke: 0.35em var(--clr-dp-outline);
-    z-index: -20;
+/*black outline*/
+.word1::before,
+.word2::before,
+.word3::before &#123;
+  content: attr(data-title);
+  position: absolute;
+  color: var(--clr-background);
+  -webkit-text-stroke: 0.3em var(--clr-background);
+  z-index: -10;
 &#125;
-        </code></pre>
-        <p class="p-space">
-          The <code>::before</code> pseudo element should already be positioned
-          where we need it, but the <code>::after</code> pseudo element needs a
-          bit of help with the use of <code>translate: -100% 0;</code>
-        </p>
-        <p>
-          Unfortunately if we position our psuedo elements to their
-          corresponding <code>H1</code> using <code>position: relative</code>,
-          the bottom <code>H1</code> psuedo elements are going to have their own
-          stacking context separate from the pseudo elements in the top
-          <code>H1</code>. And it looks stupid.
-        </p>
-        <div class="album">
-          <div class="text">
-            <h1 class="daft wrong-placement" data-title="daft">daft</h1>
-            <h1 class="punk wrong-placement" data-title="punk">punk</h1>
-          </div>
-        </div>
-        <h3>Step four: One stacking context</h3>
-        <p>
-          Getting all the psuedo elements in the same stacking context is
-          actually a pretty easy fix. Simply wrap the <code>H1</code> elements
-          in a <code>div</code> and set that to
-          <code>position: relative</code> instead of the
-          <code>H1</code> elements.
-        </p>
 
-        <div class="album">
-          <div class="text">
-            <h1 class="daft" data-title="daft">daft</h1>
-            <h1 class="punk" data-title="punk">punk</h1>
-          </div>
-        </div>
-
-        <p class="p-space">
-          The full code for just the daft punk album art looks something like
-          this then.
-        </p>
-        <p>HTML</p>
-        <pre class="code-block p-space"><code>&lt;div class="album"&#62;
-    &lt;div class="text"&#62;
-        &lt;h1 class="daft" data-title="daft"&#62;daft&lt;/h1&#62;
-        &lt;h1 class="punk" data-title="punk"&#62;punk&lt;/h1&#62;
-    &lt;/div&#62;
-&lt;/div&#62;</code></pre>
-        <p>CSS</p>
-        <pre class="code-block"><code>.album &#123;
-    display: grid;
-    align-items: center;
-    width: 80vw;
-    max-width: 500px;
-    height: 80vw;
-    max-height: 500px;
-    background: radial-gradient(
-      var(--clr-dp-lightblack),
-      var(--clr-dp-midblack),
-      var(--clr-dp-darkblack),
-      var(--clr-dp-black)
-    );
-    box-shadow: 0.1em 0.1em 1em 0em var(--clr-dp-lightblack);
-    border-radius: 0.2em;
-    margin-inline: auto;
-    margin-block: 4rem;
+/*light pink outline*/
+.word1::after,
+.word2::after,
+.word3::after &#123;
+  content: attr(data-title);
+  position: absolute;
+  color: var(--bg-pink);
+  -webkit-text-stroke: 0.4em var(--bg-pink);
+  left: 0;
+  top: 0;
+  overflow-wrap: anywhere;
+  z-index: -20;
 &#125;
-          
-.text &#123;
-    position: relative;
-    z-index: 0;
-&#125;
-                    
-.album h1 &#123;
-    line-height: 0.8;
-    font-size: clamp(3rem, 12vw + 1rem, 8rem);
-    color: var(--clr-dp-txt);
-    text-shadow: -0.01em -0.02em 0em var(--clr-dp-txtshd-dark),
-      0.01em 0.01em 0.01em var(--clr-dp-txtshd-mid),
-      0.03em 0.03em 0.01em var(--clr-dp-txtshd-light);
-    font-family: var(--font-dp);
-    text-align: center;
-&#125;
-          
-/* black outline*/
-.daft::before,
-.punk::before &#123;
-    content: attr(data-title);
-    position: absolute;
-    color: var(--clr-dp-black); 
-    -webkit-text-stroke: 0.3em var(--clr-dp-black);
-    z-index: -10;
-&#125;
-          
-/* yellow outline */
-.daft::after,
-.punk::after &#123;
-    content: attr(data-title);
-    position: absolute;
-    color: var(--clr-dp-outline);
-    translate: -100% 0;
-    -webkit-text-stroke: 0.35em var(--clr-dp-outline);
-    z-index: -20;
-&#125;</code></pre>
-
-        <div class="album2">
-          <div class="text">
-            <h1 class="daft" data-title="thanks">thanks</h1>
-          </div>
-        </div>
+</code></pre>
+</figure>
+<h5 class="bye">THANKS!</h5>
       </section>
       <Footer></Footer>
     </div>
