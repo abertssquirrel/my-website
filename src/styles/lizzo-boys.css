@@ -25,6 +25,10 @@
 
 /* MY STYLES :) */
 
+* {
+  scrollbar-color: var(--clr-cyan) white;
+}
+
 body {
   background-color: var(--clr-pink);
   height: 100%;
@@ -149,6 +153,7 @@ code {
     font-size: 1rem;
     text-shadow: 1px 1px 0px var(--clr-hotpink);
   }
+  scrollbar-color: var(--clr-cyan) black;
 }
 
 .album-art {

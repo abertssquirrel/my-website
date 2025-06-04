@@ -7,10 +7,10 @@ const id = `madlib-${ Math.random().toString(36).slice(2, 11)}`
     {
         story.map(paragraph => <p>{
                 paragraph.map((line, i) => {
-                    if (i % 2 === 0) {
+                    /*if (i % 2 === 0)*/ if (line[0] !== '$') {
                         return line
                     } else {
-                        return <input class="word-type" type="text" placeholder={line}/>
+                        return <input class="word-type" type="text" placeholder={line.slice(1)}/>
                     }
                 })
         }</p>)
@@ -66,7 +66,7 @@ margin-bottom: 3rem;
   font-weight: 800;
   border: none;
   background-color: transparent;
-  max-inline-size: 15ch;
+  max-inline-size: 18ch;
   padding-inline: 1ch;
   margin-inline: .5ch;
 }

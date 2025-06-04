@@ -16,6 +16,9 @@
 }
 
 /* MY STYLES :) */
+* {
+  scrollbar-color: var(--bg-pink) white;
+}
 
 body {
   min-height: 100vh;

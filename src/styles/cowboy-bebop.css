@@ -23,6 +23,9 @@
 }
 
 /* MY STYLES :) */
+* {
+  scrollbar-color: var(--clr-blue) white;
+}
 
 body {
   background-color: var(--clr-background);

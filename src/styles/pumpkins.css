@@ -18,6 +18,9 @@
 }
 
 /*my styles*/
+* {
+  scrollbar-color: var(--pushpin-clr) white;
+}
 
 body {
   font-family: var(--font-handwriting), 'Segoe Print', 'Bradley Hand', Chilanka,

@@ -43,6 +43,10 @@
 
 /* MY STYLES :) */
 
+* {
+  scrollbar-color: var(--accent-pink) var(--clr-outline);
+}
+
 body {
   background-color: var(--clr-background);
 }
@@ -159,6 +163,7 @@ code {
   code {
     font-size: 1rem;
   }
+  scrollbar-color: var(--accent-pink) var(--clr-bg-code);
 }
 
 .code-wrapper .code-caption {

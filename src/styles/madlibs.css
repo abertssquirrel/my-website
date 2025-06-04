@@ -20,6 +20,10 @@
 }
 
 /*My styles*/
+* {
+  scrollbar-color: black var(--bg-blue);
+}
+
 body {
   background-image: url(../../public/assets/svgs/doodle-bg.svg),
     repeating-linear-gradient(

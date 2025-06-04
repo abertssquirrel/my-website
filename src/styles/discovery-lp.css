@@ -72,6 +72,9 @@
 }
 
 /* MY STYLES :) */
+* {
+  scrollbar-color: var(--clr-textshadow1) white;
+}
 
 body {
   background-color: var(--clr-background);
@@ -198,6 +201,7 @@ code {
     font-size: 1rem;
     text-shadow: 1px 1px 0px var(--clr-textshadow1);
   }
+  scrollbar-color: var(--clr-textshadow1) var(--clr-text);
 }
 
 .col-row-wrapper {

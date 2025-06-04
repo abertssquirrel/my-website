@@ -17,6 +17,9 @@
 }
 
 /* My Styles */
+* {
+  scrollbar-color: var(--bg-pink) white;
+}
 
 body {
   font-family: var(--font-handwriting);
