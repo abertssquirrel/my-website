@@ -34,11 +34,14 @@ import "/src/styles/discovery-lp.css"
               <a href="https://www.youtube.com/watch?v=ZShmsKcAHFc">band.</a>
             </p>
           </div>
-          <img
-            class="album-art"
-            src="/assets/photos/album-art/discovery-osakaloopline.jpg"
-            alt="the album art from Discovery's album 'LP"
-          />
+          <figure class="art-wrapper">
+            <img
+              class="album-art"
+              src="/assets/photos/album-art/discovery-osakaloopline.jpg"
+              alt="the album art from Discovery's album 'LP"
+            />
+            <figcaption class="caption">The album art from Discovery's "LP"</figcaption>
+          </figure>
         </div>
         <h3>Grid and Opacity</h3>
         <p class="p-space">
@@ -53,8 +56,8 @@ import "/src/styles/discovery-lp.css"
           something like this…
         </p>
         <div class="col-row-wrapper">
-          <div>
-            <h4>COLUMNS</h4>
+          <figure class="figure-wrapper">
+            <figcaption class="caption">COLUMNS</figcaption>
             <div class="album-wrapper">
               <div class="album-grid">
                 <h1 class="discovery">DISCOVERY</h1>
@@ -66,9 +69,9 @@ import "/src/styles/discovery-lp.css"
                 <h2 class="lp">LP</h2>
               </div>
             </div>
-          </div>
-          <div>
-            <h4>ROWS</h4>
+          </figure>
+          <figure class="figure-wrapper">
+            <figcaption class="caption">ROWS</figcaption>
             <div class="album-wrapper">
               <div class="album-grid">
                 <h1 class="discovery">DISCOVERY</h1>
@@ -80,7 +83,7 @@ import "/src/styles/discovery-lp.css"
                 <h2 class="lp">LP</h2>
               </div>
             </div>
-          </div>
+          </figure>
         </div>
         <p class="p-space">
           I prefer declaring all my colors in <code>global CSS variables</code>.
@@ -174,8 +177,8 @@ import "/src/styles/discovery-lp.css"
             <code>box-shadows</code> to the columns.
           </p>
           <div class="col-row-wrapper2">
-            <div>
-              <h4>5 ROWS & 2 COLUMNS</h4>
+            <figure class="figure-wrapper">
+              <figcaption class="caption">5 ROWS & 2 COLUMNS</figcaption class="caption">
               <div class="album-wrapper">
                 <div class="album-grid">
                   <h1 class="discovery">DISCOVERY</h1>
@@ -189,9 +192,9 @@ import "/src/styles/discovery-lp.css"
                   <h2 class="lp">LP</h2>
                 </div>
               </div>
-            </div>
-            <div>
-              <h4>5 ROWS & 5 COLUMNS</h4>
+            </figure>
+            <figure class="figure-wrapper">
+              <figcaption class="caption">5 ROWS & 5 COLUMNS</figcaption>
               <div class="album-wrapper">
                 <div class="album-grid">
                   <h1 class="discovery">DISCOVERY</h1>
@@ -208,14 +211,15 @@ import "/src/styles/discovery-lp.css"
                   <h2 class="lp">LP</h2>
                 </div>
               </div>
-            </div>
+            </figure>
           </div>
         </div>
         <p class="p-space">
           To create this album art all you need to do is create a 5x5 grid with
           a div for every row and column's <code>linear-gradient</code>.
         </p>
-        <p>HTML</p>
+        <figure class="code-wrapper">
+        <figcaption class="caption">HTML</figcaption class="caption">
         <pre class="code-block p-space"><code>&lt;div class="album-wrapper"&#62;
   &lt;div class="album-grid"&#62;
     &lt;h1 class="discovery"&#62;DISCOVERY&lt;/h1&#62;
@@ -232,10 +236,12 @@ import "/src/styles/discovery-lp.css"
     &lt;h2 class="lp"&#62;LP&lt;/h2&#62;
   &lt;/div&#62;
 &lt;/div&#62;</code></pre>
-        <p>
+</figure>
+<figure class="code-wrapper">
+        <figcaption class="caption">
           CSS - see
           <a href="#root">my crazy CSS :root</a> to view my custom properties
-        </p>
+        </figcaption>
         <pre class="code-block p-space"><code>.album-wrapper &#123;
     max-width: fit-content;
     margin-inline: auto;
@@ -360,6 +366,7 @@ import "/src/styles/discovery-lp.css"
     margin-top: -2cqi;
 &#125;
         </code></pre>
+        </figure>
         <div class="album-grid-bye">
           <div class="column1"></div>
           <div class="column2"></div>

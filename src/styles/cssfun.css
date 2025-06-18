@@ -25,6 +25,7 @@ body {
   font-family: var(--font-handwriting);
   background-image: url(../../public/assets/svgs/ed-heart-emojis.svg);
   background-size: 65%;
+  background-color: var(--bg-pink);
 }
 
 .body-wrapper {
@@ -67,22 +68,23 @@ h2 {
 }
 
 .album-art {
-  --photo-width: clamp(260px, 35vw, 350px);
+  --photo-width: clamp(200px, 20vw, 240px);
   object-fit: cover;
   width: var(--photo-width);
   height: var(--photo-width);
   margin-bottom: 1rem;
   box-shadow: 0.4em 0.4em 0em 0em var(--accent-pink);
+  margin-inline: auto;
 }
 
 section a {
   text-decoration: none;
   color: black;
-  -webkit-text-stroke: 0.2em var(--bg-pink);
+  -webkit-text-stroke: 0.2em var(--bg-blue);
   paint-order: stroke;
-  font-size: clamp(1.25rem, 2vw + 1rem, 2rem);
+  font-size: 1.35rem;
   font-weight: 800;
-
+  text-align: center;
   justify-self: center;
 }
 
