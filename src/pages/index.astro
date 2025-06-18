@@ -1,4 +1,5 @@
 ---
+import Head from '../components/head.astro'
 import Header from '../components/header.astro'
 import Footer from '../components/footer.astro'
 import "/src/styles/reset.css"
@@ -6,13 +7,7 @@ import "/src/styles/style.css"
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Nelly's Homepage</title>
-	</head>
+	<Head title="Nelly's homepage"></Head>
 	<body>
 		<section class="bg-white">
 			<Header></Header>
@@ -26,7 +21,7 @@ import "/src/styles/style.css"
 			<h2>BACKSTORY</h2>
 			<p class="p-space">
 			  I have a degree in botany and worked on a fruit and veggie farm for 18
-			  years until the owners retired. Because of a recurring shoulder injury
+			  years. Because of a recurring shoulder injury
 			  I decided to learn front end web development. And you may ask what business does some farm
 			  worker have designing websites? And to that I say “have you seen my
 			  <a href="pumpkins.html">pumpkins</a>?!”
