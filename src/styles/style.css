@@ -20,41 +20,6 @@
   scrollbar-color: var(--bg-pink) white;
 }
 
-/*starwipe*/
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-group(root) {
-  animation-duration: 2s;
-}
-
-::view-transition-old(root) {
-  animation: 1s grow6 forwards cubic-bezier(0.76, 0.05, 0.86, 0.06);
-  position: fixed;
-  width: 100dvw;
-  height: 100dvh;
-  inset: 0;
-  pointer-events: none;
-  mask: url('../../public/assets/svgs/blackstar.svg') center/contain no-repeat,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-}
-
-::view-transition-new(root) {
-  animation: none;
-  z-index: -1;
-}
-
-@keyframes grow6 {
-  0% {
-    mask-size: 1px;
-  }
-  100% {
-    mask-size: max(300dvh, 300dvw);
-  }
-}
-
 body {
   min-height: 100vh;
   font-family: var(--font-handwriting);
