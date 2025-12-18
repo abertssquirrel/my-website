@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 :root {
   --bg-pink: rgb(252, 193, 225);
   --bg-blue: rgb(140, 189, 218);
@@ -17,6 +18,7 @@
   --font-squiggle: 'Redacted Script', fantasy;
   --font-handwriting: 'Indie Flower', cursive;
   --font-pumpkin: 'Cherry Bomb One', system-ui;
+  --font-japanese: 'Hachi Maru Pop', system-ui;
 }
 
 /*My styles*/

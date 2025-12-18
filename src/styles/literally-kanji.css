@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+:root {
+  interpolate-size: allow-keywords;
+
+  --bg-pink: rgb(252, 193, 225);
+  --bg-blue: rgb(140, 189, 218);
+  --bg-lightblue: rgb(184, 208, 221);
+  --bg-yellow: rgb(224, 247, 23);
+  --accent-pink: rgb(250, 58, 116);
+  --outline: rgb(197, 58, 125);
+  --white: white;
+
+  /*header and footer colors*/
+  --clr-text: black;
+  --clr-outline: var(--bg-pink);
+  --clr-outline-accent: var(--bg-yellow);
+
+  --font-squiggle: 'Redacted Script', fantasy;
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One', system-ui;
+  --font-japanese: 'Hachi Maru Pop', system-ui;
+}
+
+/*My styles*/
+* {
+  scrollbar-color: black var(--bg-blue);
+}
+
+body {
+  background-image: url(../../public/assets/svgs/doodle-bg.svg),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      var(--bg-lightblue) 30px,
+      var(--bg-lightblue) 32px
+    );
+  background-size: 800px;
+  color: black;
+  font-family: var(--font-handwriting);
+  margin-block: 0;
+}
+
+.body-wrapper {
+  max-width: 800px;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.space {
+  margin-top: 2rem;
+}
+
+.kanji-title {
+  font-family: var(--font-pumpkin);
+  line-height: 0.8;
+  width: 55cqi;
+  color: var(--clr-text);
+  font-size: clamp(2.25rem, 7cqi + 1rem, 5rem);
+  text-shadow: 0.01em 0.01em 0 var(--bg-yellow),
+    0.04em 0.04em 0 var(--bg-yellow), -0.01em -0.01em 0 var(--bg-pink),
+    -0.04em -0.04em 0 var(--bg-pink);
+  text-transform: uppercase;
+  paint-order: stroke;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.heading {
+  container-type: inline-size;
+}
+
+.ed-whistle {
+  float: right;
+  shape-outside: circle();
+  width: 40cqw;
+  margin: 1rem;
+  margin-top: 2rem;
+  rotate: 10deg;
+  filter: drop-shadow(3px 3px 0px var(--bg-blue));
+}
+
+main {
+  font-size: clamp(1rem, 1.25vw + 1rem, 1.5rem);
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+}
+
+ul {
+  list-style: none;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+/*forces open detail element to be first in the list if opened*/
+li:has(details[open]) {
+  order: -1;
+}
+
+/*close animation doesn't work*/
+details {
+  & .kanji-facts {
+    animation: vanish 1000ms linear forwards;
+  }
+  & summary {
+    list-style: none;
+  }
+
+  & summary::marker {
+    content: '';
+  }
+}
+
+details[open] {
+  & .kanji-facts {
+    animation: appear 1800ms linear forwards;
+    margin-bottom: 2rem;
+  }
+  & .kanji-btn {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    text-shadow: 0.02em 0.02em 0 var(--bg-yellow),
+      0.04em 0.04em 0 var(--bg-yellow), -0.02em -0.02em 0 var(--bg-pink),
+      -0.04em -0.04em 0 var(--bg-pink);
+    line-height: 0.8;
+    flex-grow: none;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.japanese {
+  font-family: var(--font-japanese);
+}
+
+.kanji-btn {
+  font-family: var(--font-japanese);
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  box-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  border-radius: 5px;
+  border: 2px solid black;
+  background: transparent;
+  margin-block: 1rem;
+  padding-block: 0.4em;
+  padding-inline: 0.8em;
+
+  & span {
+    font-size: 2rem;
+    font-family: var(--font-handwriting);
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
+  }
+
+  &:active {
+    box-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue),
+      3px 3px 0px var(--bg-blue), 4px 4px 0px var(--bg-blue);
+  }
+}
+
+.kanji {
+  font-family: var(--font-japanese);
+  font-size: clamp(3rem, 20cqi + 1rem, 150px);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0.01em 0.01em 0 var(--bg-yellow),
+    0.02em 0.02em 0 var(--bg-yellow), -0.01em -0.01em 0 var(--bg-pink),
+    -0.02em -0.02em 0 var(--bg-pink);
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    color: transparent;
+  }
+
+  40% {
+    color: white;
+    opacity: 1;
+  }
+
+  100% {
+    color: black;
+  }
+}
+
+@keyframes vanish {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
+
+.appear {
+  display: block;
+  opacity: 1;
+  animation: appear 1800ms linear forwards;
+}
+
+.vanish {
+  animation: vanish 1000ms ease-in forwards;
+  display: none;
+}
+
+.kanji-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.125rem;
+  overflow: hidden;
+  font-family: var(--font-japanese);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* It's snowing!!!!! */
+@keyframes fall {
+  to {
+    transform: translateX(-50%) translateY(100vh);
+  }
+}
+
+.snow-position {
+  position: absolute;
+  top: 0;
+}
+
+.snow {
+  user-select: none;
+  transform: translateX(-50%) translateY(-200%);
+  animation: fall infinite forwards linear;
+  color: var(--bg-blue);
+  text-shadow: none;
+  text-shadow: 0em 0em 1em rgb(0, 160, 253);
+}

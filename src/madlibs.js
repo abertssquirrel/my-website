@@ -84,4 +84,30 @@ export const MadLibs = [
       ],
     ],
   },
+  {
+    title: 'BREAKFAST CEREAL',
+    story: [
+      [
+        '$noun',
+        'puffs are part of a',
+        '$adjective',
+        'breakfast. Each box contains two whole scoops of ',
+        '$plural noun',
+        "and a whole day's worth of dietary fiber. Eating our cereal could",
+        '$adverb',
+        'reduce your risk of',
+        '$medical condition',
+        '. Nine out of ten',
+        '$plural animal',
+        'prefer our puffs to the competition!',
+      ],
+      [
+        '*Note: each serving contains',
+        '$number',
+        'grams of added sugar, and more',
+        '$element',
+        'than a bowl of ramen. Consume with caution.',
+      ],
+    ],
+  },
 ];

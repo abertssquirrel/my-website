@@ -1,0 +1,63 @@
+---
+import Head from '../components/head.astro'
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import "/src/styles/reset.css"
+import "/src/styles/madlibs.css"
+import "/src/styles/literally-kanji.css"
+import "/src/styles/starwipe.css"
+
+
+---
+
+<html lang="en">
+<Head title="literally kanji"></Head>
+    <body>
+     <div class="kanji-wrapper"></div>   
+        <div class="body-wrapper">
+            <Header></Header>
+            
+            <div class="heading">
+                <img class="ed-whistle" src="../../public/assets/svgs/ed-whistle-pink.svg" alt="">
+                <h1 class="kanji-title">literally * <br/>kanji</h1>
+            </div>
+
+            <main>
+                <h2>Click the kanji to observe them in their natural habitat!</h2>
+                <ul>
+                    <li id="snow-li">
+                        <details name="kanjipedia"><summary id="snow-btn" class="kanji-btn">雪 <br/><span>snow</span></summary>
+                        <div id="snow-facts" class="kanji-facts">
+                            <p>Appearing gentle when solitary, snow kanji (<span class="japanese">雪</span>) are gregarious creatures that enjoy riding the winds and coordinating outfits with snow shoe hares.</p>
+                </div></details>
+
+                    </li>
+                    <li id="rain-li">
+                        <details name="kanjipedia"><summary id="rain-btn" class="kanji-btn">雨 <br/><span>rain</span></summary>
+                        <div id="rain-facts" class="kanji-facts">
+                            <p>Rain kanji (<span class="japanese">雨</span>) are hateful creatures that hurl their tiny bodies into unsuspecting ants with no regard for their own wellbeing.</p>
+                </div></details>
+
+                    </li>
+                    <li id="wind-li">
+                        <details name="kanjipedia"><summary id="wind-btn" class="kanji-btn">風 <br/><span>wind</span></summary>
+                        <div id="wind-facts" class="kanji-facts">
+                            <p>Wind kanji (<span class="japanese">風</span>) are the musicians of the logographic kingdom.  They will turn anything into a musical instrument, from tiny leaves to mountain passes.</p>
+                </div></details>
+
+                    </li>
+                </ul>
+
+            </main>
+            
+            
+    
+    <Footer></Footer>
+        </div>
+        
+        <script src="/src/scripts/snow.js" ></script>
+    </body>
+
+</html>
+
+    
