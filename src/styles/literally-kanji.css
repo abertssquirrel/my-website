@@ -253,6 +253,78 @@ details[open] {
   transform: translateX(-50%) translateY(-200%);
   animation: fall infinite forwards linear;
   color: var(--bg-blue);
-  text-shadow: none;
   text-shadow: 0em 0em 1em rgb(0, 160, 253);
+}
+
+/* It's raining!!!!! */
+.rain-position {
+  position: absolute;
+  top: 0;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-200%);
+  }
+
+  70% {
+    transform: translateY(var(--fall-percent));
+  }
+
+  100% {
+    transform: translateY(var(--fall-percent));
+  }
+}
+
+/*smooshes the kanji as hits the ground*/
+@keyframes sploosh {
+  0% {
+    transform: scale(1, 1);
+  }
+  70% {
+    transform: scale(1, 1.5);
+  }
+  78% {
+    transform: scale(3, 0.1);
+  }
+  100% {
+    transform: scale(3, 0.1);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.drop {
+  position: relative;
+  transform: translateX(-50%) translateY(-200%);
+  user-select: none;
+  color: var(--bg-blue);
+  text-shadow: none;
+  animation: rain var(--duration) infinite forwards linear;
+  & span {
+    position: absolute;
+    /*half the width of the svg - half the width of the kanji*/
+    left: calc(100px - var(--kanji-font-size) / 2);
+
+    animation: sploosh var(--duration) infinite forwards linear;
+  }
+
+  & svg {
+    /*need to animate to grow last 30%*/
+    stroke: var(--bg-blue);
+    animation: ripple var(--duration) infinite forwards linear;
+  }
 }
