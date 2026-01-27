@@ -23,6 +23,7 @@
 
 body {
   font-family: var(--font-handwriting);
+
   background-image: url(../../public/assets/svgs/ed-heart-emojis.svg);
   background-size: 65%;
   background-color: var(--bg-pink);

@@ -81,7 +81,7 @@ function rain() {
 
   const width = window.innerWidth;
 
-  let rainDrops = Math.floor(width / 70);
+  let rainDrops = Math.floor(width / 60);
   const maxDrops = rainDrops;
 
   while (rainDrops > 0) {
@@ -102,7 +102,7 @@ function rain() {
         </svg>`;
 
     /* random raindrop position, fall length, duration based on fall length , and size (the larger the longer the fall)  */
-    const left = randomIntFromInterval(0, 100);
+    let left = randomIntFromInterval(0, 100);
 
     let size = randomIntFromInterval(10, 30);
     /*need value to place kanji in ripple*/
@@ -112,12 +112,13 @@ function rain() {
     let fall = normalize(size, 10, 30, 55, 90);
     console.log(fall);
     rainDrop.style.setProperty('--fall-percent', fall + 'vh');
-    let fallPx = window.innerHeight * (fall / 100);
+    let fallPx = (window.innerHeight * fall) / 100;
+    console.log(fallPx);
 
     const fakeGravity = 700 / 5000; /* px per ms*/
     let duration = fallPx / fakeGravity;
     let delay;
-    /*makes it seem like the snow starts falling gradually */
+    /*makes it seem like the rain starts falling gradually */
     if (rainDrops + 3 > maxDrops) {
       delay = randomIntFromInterval(0, 1000);
     } else {

@@ -32,7 +32,8 @@
 }
 
 body {
-  font-family: var(--font-handwriting), 'Segoe Print', 'Bradley Hand', Chilanka,
+  font-family:
+    var(--font-handwriting), 'Segoe Print', 'Bradley Hand', Chilanka,
     TSCu_Comic, casual, cursive;
 
   color: var(--whitish-clr);
@@ -40,12 +41,14 @@ body {
   margin: 0;
   padding-top: 1rem;
   background-color: var(--bg-clr);
+
   background-image: url(/assets/svgs/halloween-bg.svg);
   background-repeat: repeat;
-  background-size: 300px;
+  background-size: 400px;
 
-  background-position: center;
+  /*
   position: relative;
+  */
 }
 
 .body-wrapper {
@@ -60,32 +63,83 @@ body {
   margin-bottom: 6rem;
 }
 
+.pumpkin-emoji {
+  width: clamp(150px, 25vw, 345px);
+  filter: drop-shadow(0.25em 0.25em 0px var(--darkpurple));
+}
+
+.pumpkin-emoji-wrapper {
+  float: right;
+  shape-outside: circle(20vw);
+  margin: 1rem;
+  rotate: 10deg;
+  background: repeating-conic-gradient(
+    from 65deg at 50% 50%,
+    var(--pushpin-clr) 0deg 5deg,
+    transparent 5deg 30deg,
+    var(--pushpin-clr) 30deg 32deg,
+    transparent 32deg 57deg,
+    var(--pushpin-clr) 57deg 60deg,
+    transparent 60deg 85deg
+  );
+
+  position: relative;
+
+  border-radius: 50%;
+
+  padding: clamp(50px, 18vw, 120px);
+  width: fit-content;
+  z-index: -10;
+}
+
+/*.pumpkin-emoji::before {
+  content: '';
+  width: fit-content;
+  border-radius: 50%;
+  border: 1px solid hotpink;
+  position: absolute;
+  inset: 0;
+  top: -50%;
+  left: -50%;
+  z-index: -10;
+}
+  */
+
 h1 {
   font-family: var(--font-pumpkin);
-  font-size: clamp(2.2rem, 7vw + 1rem, 12rem);
+  font-size: clamp(2.2rem, 6vw + 1rem, 7rem);
   line-height: 0.8;
   color: var(--pumpkin-orange);
+  width: fit-content;
   text-transform: uppercase;
-  -webkit-text-stroke: 20px var(--whitish-clr);
+  text-shadow:
+    0.05em 0em 0px var(--highlighter),
+    0.1em 0em 0px var(--darkpurple);
+  /*
+  -webkit-text-stroke: 20px var(--highlighter);
   paint-order: stroke;
+*/
 
-  border-radius: 1rem;
   padding-inline: 1rem;
   margin-bottom: 0.9em;
 }
 
 .description {
-  background-color: var(--whitish-clr);
+  /*background-color: var(--whitish-clr);*/
   color: var(--dark-txt-clr);
-  text-shadow: 1px 1px 0px var(--pushpin-clr), 2px 2px 0px var(--pushpin-clr);
+  text-shadow:
+    1px 1px 0px var(--whitish-clr),
+    2px 2px 0px var(--whitish-clr);
   border-radius: 1rem;
   font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
   padding: 1.5rem;
   max-width: 75ch;
+  -webkit-text-stroke: 0.3em var(--clr-outline);
+  paint-order: stroke;
 }
 
 .submissions {
-  --min-column-size: 400px;
+  --min-column-size: 300px;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
@@ -95,65 +149,30 @@ h1 {
   row-gap: 6rem;
 }
 
-.submission {
-  --photo-width: clamp(250px, 35vw, 400px);
-  container-type: inline-size;
+.pumpkin-emoji-whistle {
+  width: 175px;
+  filter: drop-shadow(0.25em 0.25em 0px var(--darkpurple));
   justify-self: center;
-  background-color: var(--whitish-clr);
-  width: var(--photo-width);
-  height: calc(var(--photo-width) * 1.15);
-  border-radius: 2px;
-  box-shadow: 2px 2px 5px 0px var(--darkpurple);
-  padding-top: calc(var(--photo-width) / 15);
-  padding-inline: calc(var(--photo-width) / 15);
-
-  position: relative;
-}
-
-.submission:hover,
-.submission:focus-visible {
-  transform: rotate(4deg);
-  box-shadow: 2px 2px 20px 0px var(--highlighter);
-  cursor: pointer;
-}
-
-/*pushpin*/
-.submission::before {
-  content: '';
-  background-color: var(--pushpin-clr);
-  border-radius: 50%;
-  width: 8cqw;
-  height: 8cqw;
-  box-shadow: 1px 1px 1px 0px var(--bg-clr);
-  position: absolute;
-  inset: 0;
-  top: -1cqw;
-  left: 54cqw;
-  z-index: 10;
-}
-
-.pumpkin-photo {
-  height: 100cqw;
-  background-size: cover;
-  border-radius: 1px;
-  opacity: 0.9;
+  align-self: center;
+  rotate: -8deg;
 }
 
 /* accessible polaroid button stuff */
 .polaroid {
-  --photo-width: clamp(250px, 35vw, 400px);
+  --photo-width: clamp(225px, 35vw, 300px);
   container-type: inline-size;
   justify-self: center;
   background-color: var(--whitish-clr);
   width: var(--photo-width);
   height: calc(var(--photo-width) * 1.15);
   border-radius: 2px;
+  border: 3px solid var(--darkpurple);
   box-shadow: 2px 2px 5px 0px var(--darkpurple);
   padding-top: calc(var(--photo-width) / 15);
   padding-inline: calc(var(--photo-width) / 15);
 
   position: relative;
-  border-style: none;
+  /*border-style: none;*/
 }
 
 .polaroid:hover,
@@ -163,16 +182,18 @@ h1 {
   cursor: pointer;
 }
 
+/*the pushpin*/
 .polaroid::before {
   content: '';
   background-color: var(--pushpin-clr);
   border-radius: 50%;
-  width: 8cqw;
-  height: 8cqw;
+  border: 3px solid var(--darkpurple);
+  width: 10cqw;
+  height: 10cqw;
   box-shadow: 1px 1px 1px 0px var(--bg-clr);
   position: absolute;
   inset: 0;
-  top: -1cqw;
+  top: -2cqw;
   left: 54cqw;
   z-index: 10;
 }
@@ -182,6 +203,7 @@ h1 {
   height: 100cqw;
   width: 100cqw;
   border-radius: 1px;
+  border: 3px solid var(--darkpurple);
   opacity: 0.9;
 }
 
@@ -193,7 +215,9 @@ h1 {
   font-size: 10cqw;
   font-weight: 800;
   line-height: 1;
-  text-shadow: 1px 1px 0px var(--highlighter), 2px 2px 0px var(--highlighter);
+  text-shadow:
+    1px 1px 0px var(--highlighter),
+    2px 2px 0px var(--highlighter);
 }
 
 /*
@@ -265,7 +289,9 @@ h2 {
   font-weight: 800;
   margin-top: 1rem;
   line-height: 1;
-  text-shadow: 1px 1px 0px var(--highlighter), 2px 2px 0px var(--highlighter);
+  text-shadow:
+    1px 1px 0px var(--highlighter),
+    2px 2px 0px var(--highlighter);
 }
 
 .tilt-left3 {

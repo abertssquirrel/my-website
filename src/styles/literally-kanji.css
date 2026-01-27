@@ -37,7 +37,9 @@ body {
       var(--bg-lightblue) 30px,
       var(--bg-lightblue) 32px
     );
+
   background-size: 800px;
+
   color: black;
   font-family: var(--font-handwriting);
   margin-block: 0;
