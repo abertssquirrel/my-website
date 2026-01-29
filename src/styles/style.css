@@ -27,7 +27,7 @@ body {
 
   background-color: var(--bg-pink);
   background-image: url(/assets/svgs/ranma-white-blobs.svg);
-  background-size: 40%;
+  background-size: 250px;
   position: relative;
 
   display: grid;
@@ -47,7 +47,8 @@ body {
   z-index: 10;
 
   /*wavy sides*/
-  --mask: radial-gradient(55.9px at 75px 50%, #000 99%, #0000 101%) 0
+  --mask:
+    radial-gradient(55.9px at 75px 50%, #000 99%, #0000 101%) 0
       calc(50% - 50px) / 51% 100px repeat-y,
     radial-gradient(55.9px at -50px 50%, #0000 99%, #000 101%) 25px 50% /
       calc(51% - 25px) 100px repeat-y,
@@ -65,8 +66,8 @@ body {
 
   background-color: var(--bg-blue);
   background-image: url(/assets/svgs/ranma-yellow-dots.svg);
-  background-size: 40%;
-  transform: skewY(12deg);
+  background-size: 250px;
+  transform: skewY(10deg);
   z-index: 0;
 }
 
@@ -76,9 +77,25 @@ body {
 
   background-color: var(--bg-yellow);
   background-image: url(/assets/svgs/ranma-blue-blobs.svg);
-  background-size: 40%;
+  background-size: 250px;
   transform: skewY(-4deg);
   z-index: 0;
+}
+
+.ed-emoji {
+  width: clamp(100px, 20vw, 200px);
+  filter: drop-shadow(0.25em 0.25em 0px var(--bg-blue));
+  float: right;
+  shape-outside: circle(20vw);
+  margin: 1rem;
+}
+
+.tilt-right {
+  rotate: 10deg;
+}
+
+.tilt-left {
+  rotate: -10deg;
 }
 
 h1,
@@ -87,13 +104,22 @@ h2 {
   margin-bottom: 3rem;
 }
 
+h3 {
+  font-family: var(--font-pumpkin);
+  margin-bottom: 1rem;
+}
+
 h1 {
-  font-size: clamp(2.5rem, 9vw + 1rem, 10rem);
+  font-size: clamp(2.25rem, 5vw + 1rem, 7rem);
   line-height: 0.8;
   color: black;
-  text-shadow: 1px 1px 0 var(--bg-yellow), 2px 2px 0 var(--bg-yellow),
-    3px 3px 0 var(--bg-yellow), -1px -1px 0 var(--bg-pink),
-    -2px -2px 0 var(--bg-pink), -3px -3px 0 var(--bg-pink);
+  text-shadow:
+    1px 1px 0 var(--bg-yellow),
+    2px 2px 0 var(--bg-yellow),
+    3px 3px 0 var(--bg-yellow),
+    -1px -1px 0 var(--bg-pink),
+    -2px -2px 0 var(--bg-pink),
+    -3px -3px 0 var(--bg-pink);
   text-transform: uppercase;
   paint-order: stroke;
 }
@@ -103,7 +129,9 @@ h2 {
   line-height: 0.8;
   color: black;
   text-transform: uppercase;
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
   paint-order: stroke;
 }
 
@@ -119,9 +147,12 @@ h2 {
   border-radius: 1rem;
 }
 
-p {
+p,
+ol {
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
 }
 
 .p-space {
@@ -145,7 +176,9 @@ p {
   background: none;
   font-weight: 800;
   font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
   text-decoration-line: underline;
   text-decoration-style: wavy;
 }
@@ -179,7 +212,9 @@ p {
 .ranma h3 {
   font-family: var(--font-pumpkin);
   font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
-  text-shadow: 1px 1px 0 var(--bg-blue), 2px 2px 0 var(--bg-blue);
+  text-shadow:
+    1px 1px 0 var(--bg-blue),
+    2px 2px 0 var(--bg-blue);
 }
 
 .ranma img {
