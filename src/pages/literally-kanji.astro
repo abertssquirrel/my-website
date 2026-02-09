@@ -13,7 +13,94 @@ import "/src/styles/starwipe.css"
 <html lang="en">
 <Head title="literally kanji"></Head>
     <body>
-     <div class="kanji-wrapper"></div>   
+     <div class="kanji-wrapper">
+        <!--svgs for wind emojis that are hidden by default -->
+        <svg
+        viewBox="0 0 181.06978 182.8174"
+        version="1.1"
+        id="two-gusts"
+        class="wind-position wind-hide"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g transform="translate(-0.62543462,-0.3482794)">
+          <path
+            d="M 7.5235225,26.511459 C 21.495777,54.336547 35.468033,82.161638
+        56.605831,100.85112 c 21.137797,18.68948 49.440009,28.24297
+        65.860439,27.70547 16.42043,-0.5375 20.95833,-11.16576
+        22.15252,-21.13751 1.19419,-9.97174 -0.95534,-19.28639
+        -8.65813,-25.914294 -7.70278,-6.627903 -20.95825,-10.568719
+        -29.73574,-8.777329 -8.777481,1.79139 -13.07655,9.314761
+        -11.762849,17.495187 1.3137,8.180426 8.239979,17.017406
+        21.197349,23.227326 12.95736,6.20993 31.94492,9.79249 47.70862,8.71764
+        15.76369,-1.07484 28.30265,-6.80694 36.90101,-9.73275 8.59835,-2.92582
+        13.25558,-3.04523 20.06272,2.98565 6.80713,6.03089 15.76334,18.21133
+        33.31857,24.30193 17.55524,6.09059 43.70793,6.09059 69.86111,6.09059"
+            id="gust1of2"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-dasharray="500"
+            stroke-dashoffset="500"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              keySplines="1 0 .25 .25"
+              begin="0"
+              dur="2000ms"
+              from="800"
+              to="0"
+              repeatCount="indefinite"
+            />
+          </path>
+          <path
+            d="M 0.35826297,94.939685 C 10.98673,133.51266 21.615199,172.08564 34.453106,198.71667 c 12.837908,26.63103 27.884652,41.31952 49.022438,50.27612 21.137786,8.95661 48.365226,12.18091 61.800086,-0.53771 13.43485,-12.71862 13.0766,-41.37909 1.37311,-63.29299 -11.70348,-21.9139 -34.75127,-37.08006 -50.096948,-32.48211 -15.345674,4.59795 -22.988463,28.95934 -6.030266,54.45599 16.958194,25.49665 58.515864,52.12699 82.579264,65.97984 24.06339,13.85285 30.63141,14.92762 37.19957,16.00241"
+            id="gust2of2"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-dasharray="800"
+            stroke-dashoffset="800"
+            inkscape:path-effect="#path-effect2"
+            inkscape:original-d="M 0.35826297,94.939685 C 10.986731,133.51266 21.615199,172.08564 32.243667,210.65862 c 15.047346,14.68908 30.094089,29.37757 45.141134,44.06635 27.228529,3.22443 54.455969,6.44873 81.683949,9.6731 -0.35826,-28.66161 -0.71652,-57.32208 -1.07478,-85.98311 -23.04871,-15.16677 -46.0965,-30.33294 -69.144755,-45.4994 -7.643096,24.36237 -15.285887,48.72376 -22.928829,73.08564 41.559334,26.63142 83.117004,53.26176 124.675514,79.89265 6.56828,1.07482 13.1363,2.14958 19.70446,3.22437"
+            transform="matrix(0.85836043,0,0,0.93542502,0.76741143,-87.734234)"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              from="800"
+              calcMode="spline"
+              keySplines="0.082, 0.378, 0.929, 0.613"
+              dur="2000ms"
+              to="0"
+              repeatCount="indefinite"
+            />
+          </path>
+          <text text-anchor="end" dy="2">
+            <textPath href="#gust1of2" class="small">風</textPath>
+            <animate
+              attributeName="x"
+              from="0"
+              calcMode="spline"
+              keySplines="0.082, 0.378, 0.929, 0.613"
+              dur="5000ms"
+              to="800"
+              repeatCount="indefinite"
+            />
+          </text>
+          <text text-anchor="end" dy="2">
+            <textPath href="#gust2of2" class="big">風 風</textPath>
+            <animate
+              attributeName="x"
+              from="0"
+              calcMode="spline"
+              keySplines="0.082, 0.378, 0.929, 0.613"
+              dur="3500ms"
+              to="800"
+              repeatCount="indefinite"
+            />
+          </text>
+        </g>
+      </svg>
+    </div>   
         <div class="body-wrapper">
             <Header></Header>
             

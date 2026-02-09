@@ -29,7 +29,8 @@
 }
 
 body {
-  background-image: url(../../public/assets/svgs/doodle-bg.svg),
+  background-image:
+    url(../../public/assets/svgs/doodle-bg.svg),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -62,8 +63,10 @@ body {
   width: 55cqi;
   color: var(--clr-text);
   font-size: clamp(2.25rem, 7cqi + 1rem, 5rem);
-  text-shadow: 0.01em 0.01em 0 var(--bg-yellow),
-    0.04em 0.04em 0 var(--bg-yellow), -0.01em -0.01em 0 var(--bg-pink),
+  text-shadow:
+    0.01em 0.01em 0 var(--bg-yellow),
+    0.04em 0.04em 0 var(--bg-yellow),
+    -0.01em -0.01em 0 var(--bg-pink),
     -0.04em -0.04em 0 var(--bg-pink);
   text-transform: uppercase;
   paint-order: stroke;
@@ -93,7 +96,9 @@ main {
   font-size: clamp(1rem, 1.25vw + 1rem, 1.5rem);
   font-weight: 800;
   line-height: 1;
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
 }
 
 ul {
@@ -133,8 +138,10 @@ details[open] {
     display: block;
     width: fit-content;
     font-size: 4rem;
-    text-shadow: 0.02em 0.02em 0 var(--bg-yellow),
-      0.04em 0.04em 0 var(--bg-yellow), -0.02em -0.02em 0 var(--bg-pink),
+    text-shadow:
+      0.02em 0.02em 0 var(--bg-yellow),
+      0.04em 0.04em 0 var(--bg-yellow),
+      -0.02em -0.02em 0 var(--bg-pink),
       -0.04em -0.04em 0 var(--bg-pink);
     line-height: 0.8;
     flex-grow: none;
@@ -151,8 +158,12 @@ details[open] {
   font-family: var(--font-japanese);
   font-size: 2rem;
   text-align: center;
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
-  box-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
+  box-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
   border-radius: 5px;
   border: 2px solid black;
   background: transparent;
@@ -172,8 +183,11 @@ details[open] {
   }
 
   &:active {
-    box-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue),
-      3px 3px 0px var(--bg-blue), 4px 4px 0px var(--bg-blue);
+    box-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue),
+      3px 3px 0px var(--bg-blue),
+      4px 4px 0px var(--bg-blue);
   }
 }
 
@@ -182,10 +196,14 @@ details[open] {
   font-size: clamp(3rem, 20cqi + 1rem, 150px);
   text-align: center;
   margin-bottom: 2rem;
-  text-shadow: 0.01em 0.01em 0 var(--bg-yellow),
-    0.02em 0.02em 0 var(--bg-yellow), -0.01em -0.01em 0 var(--bg-pink),
+  text-shadow:
+    0.01em 0.01em 0 var(--bg-yellow),
+    0.02em 0.02em 0 var(--bg-yellow),
+    -0.01em -0.01em 0 var(--bg-pink),
     -0.02em -0.02em 0 var(--bg-pink);
 }
+
+/* kanji facts animations*/
 
 @keyframes appear {
   0% {
@@ -236,6 +254,10 @@ details[open] {
   font-family: var(--font-japanese);
   pointer-events: none;
   user-select: none;
+
+  &[data-effect='rain'] {
+    z-index: -1;
+  }
 }
 
 /* It's snowing!!!!! */
@@ -261,46 +283,53 @@ details[open] {
 /* It's raining!!!!! */
 .rain-position {
   position: absolute;
-  top: 0;
+  top: -10%;
 }
 
+/*rain drop falls further the larger the font size is*/
 @keyframes rain {
   0% {
-    transform: translateY(-200%);
+    transform: translateY(-150%);
   }
 
   70% {
-    transform: translateY(var(--fall-percent));
+    transform: translateY(calc(var(--kanji-font-size) * 28));
   }
 
   100% {
-    transform: translateY(var(--fall-percent));
+    transform: translateY(calc(var(--kanji-font-size) * 28));
   }
 }
 
 /*smooshes the kanji as hits the ground*/
 @keyframes sploosh {
   0% {
-    transform: scale(1, 1);
+    transform: translate(-50%, -90%) scale(1, 1);
   }
   70% {
-    transform: scale(1, 1.5);
+    transform: translate(-50%, -90%) scale(1, 1.5);
+    opacity: 1;
   }
   78% {
-    transform: scale(3, 0.1);
+    transform: translate(-50%, -90%) scale(3, 0);
   }
-  100% {
-    transform: scale(3, 0.1);
+  80% {
     opacity: 0;
   }
-}
 
+  100% {
+    transform: translate(-50%, -90%) scale(3, 0);
+  }
+}
+/*scales the ellipse to make it look like a ripple*/
 @keyframes ripple {
   0% {
     transform: scale(0);
   }
   70% {
     transform: scale(0);
+  }
+  90% {
     opacity: 1;
   }
   100% {
@@ -310,23 +339,77 @@ details[open] {
 }
 
 .drop {
-  position: relative;
-  transform: translateX(-50%) translateY(-200%);
-  user-select: none;
-  color: var(--bg-blue);
-  text-shadow: none;
-  animation: rain var(--duration) infinite forwards linear;
+  --duration: 3000ms;
+  --kanji-font-size: 25px;
+  --animation-delay: 0ms;
+  --left-position: 50vw;
+  --drop-clr: var(--accent-pink);
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: var(--left-position);
+  font-size: var(--kanji-font-size);
+  color: var(--drop-clr);
+  animation: rain var(--duration) var(--animation-delay) infinite forwards
+    linear;
+  translate: -50% 0;
   & span {
+    font-size: var(--font-size);
     position: absolute;
-    /*half the width of the svg - half the width of the kanji*/
-    left: calc(100px - var(--kanji-font-size) / 2);
-
-    animation: sploosh var(--duration) infinite forwards linear;
+    top: 50%;
+    left: 50%;
+    animation: sploosh var(--duration) var(--animation-delay) infinite forwards
+      linear;
   }
-
   & svg {
-    /*need to animate to grow last 30%*/
-    stroke: var(--bg-blue);
-    animation: ripple var(--duration) infinite forwards linear;
+    stroke: var(--drop-clr);
+    /*ripple size is based on kanji font size*/
+    width: calc(15 * var(--kanji-font-size));
+    animation: ripple var(--duration) var(--animation-delay) infinite forwards
+      linear;
   }
+}
+
+/* wind emoji stuff */
+.wind-position {
+  position: absolute;
+
+  top: 0;
+}
+
+#two-gusts {
+  width: 100%;
+  height: 70vh;
+  stroke: rgb(255, 192, 203, 0.6);
+
+  stroke-width: 1px;
+
+  & .small {
+    font-size: 0.4rem;
+    stroke: none;
+    fill: pink;
+  }
+
+  & .big {
+    font-size: 0.8rem;
+    stroke: none;
+    fill: pink;
+  }
+}
+
+@keyframes wind-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wind-appear {
+  animation: 3000ms wind-appear ease-in;
+}
+
+.wind-hide {
+  display: none;
 }

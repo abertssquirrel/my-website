@@ -154,7 +154,33 @@ h1 {
   filter: drop-shadow(0.25em 0.25em 0px var(--darkpurple));
   justify-self: center;
   align-self: center;
-  rotate: -8deg;
+  rotate: -12deg;
+  transition: rotate 1100ms
+    linear(
+      0,
+      0.01 0.7%,
+      0.04 1.4%,
+      0.165 3%,
+      0.815 8.4%,
+      1.052 10.8%,
+      1.197 13.1%,
+      1.236 14.2%,
+      1.258 15.4%,
+      1.26 16.8%,
+      1.237 18.4%,
+      0.998 26.5%,
+      0.952 29%,
+      0.933 31.5%,
+      0.938 34.6%,
+      1 42.7%,
+      1.017 47.5%,
+      0.996 63.4%,
+      1
+    );
+
+  &:hover {
+    rotate: 40deg;
+  }
 }
 
 /* accessible polaroid button stuff */

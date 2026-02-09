@@ -3,9 +3,12 @@ const snowFact = document.getElementById('snow-facts');
 const snowBtn = document.getElementById('snow-btn');
 const rainBtn = document.getElementById('rain-btn');
 const kanjiWrapper = document.querySelector('.kanji-wrapper');
+const windBtn = document.getElementById('wind-btn');
+const twoGusts = document.getElementById('two-gusts');
 
 snowBtn.addEventListener('click', snow);
 rainBtn.addEventListener('click', rain);
+windBtn.addEventListener('click', toggleWind);
 
 /*function snowFactsToggle() {
   console.log('facts about snow kanji');
@@ -14,6 +17,7 @@ rainBtn.addEventListener('click', rain);
 }*/
 
 function clear() {
+  kanjiWrapper.removeAttribute('data-effect');
   const particles = document.querySelectorAll('.particle');
   particles.forEach((particle) => particle.remove());
 }
@@ -30,7 +34,8 @@ function snow() {
 
   let snowFlakes = Math.floor(width / 35);
   const maxFlakes = snowFlakes;
-  //   console.log(snowFlakes, maxFlakes);
+
+  const positionsArray = randomlyEven(maxFlakes);
 
   while (snowFlakes > 0) {
     const snowFlake = document.createElement('div');
@@ -39,7 +44,7 @@ function snow() {
     snowFlake.innerText = '雪';
     // console.log(snowFlake.classList.contains('snow'));
     /* random snow flake position, duration, and size */
-    const left = randomIntFromInterval(0, 100);
+    let left = positionsArray[snowFlakes - 1] * 100;
     const randomDuration = randomIntFromInterval(5000, 8000);
     let size;
     if (snowFlakes % 13 === 0) {
@@ -50,7 +55,7 @@ function snow() {
 
     let delay;
     /*makes it seem like the snow starts falling gradually */
-    if (snowFlakes + 3 > maxFlakes) {
+    if (Math.random() * maxFlakes < 3) {
       delay = randomIntFromInterval(0, 1000);
     } else {
       delay = randomIntFromInterval(1000, 18000);
@@ -72,17 +77,23 @@ function snow() {
   }
 }
 
+/* rain emoji stuff! */
+
 function rain() {
-  const isRaining = !!document.querySelector('.rain');
+  const isRaining = !!document.querySelector('.drop');
   clear();
   if (isRaining) {
     return;
   }
 
+  kanjiWrapper.setAttribute('data-effect', 'rain');
+
   const width = window.innerWidth;
 
-  let rainDrops = Math.floor(width / 60);
+  let rainDrops = Math.floor(width / 55);
   const maxDrops = rainDrops;
+
+  const positionsArray = randomlyEven(maxDrops);
 
   while (rainDrops > 0) {
     const rainDrop = document.createElement('div');
@@ -94,29 +105,31 @@ function rain() {
             id="ripple-ellipse"
             cx="100"
             cy="15"
-            rx="70"
+            rx="90"
             ry="12"
             fill="none"
-            stroke-width="2"
+            stroke-width="3"
           />
         </svg>`;
 
     /* random raindrop position, fall length, duration based on fall length , and size (the larger the longer the fall)  */
-    let left = randomIntFromInterval(0, 100);
+    let left = positionsArray[rainDrops - 1] * 100;
 
-    let size = randomIntFromInterval(10, 30);
+    let size = randomIntFromInterval(10, 25);
     /*need value to place kanji in ripple*/
     rainDrop.style.setProperty('--kanji-font-size', size + 'px');
 
     /*translateY in rain animation*/
+    /*
     let fall = normalize(size, 10, 30, 55, 90);
     console.log(fall);
     rainDrop.style.setProperty('--fall-percent', fall + 'vh');
     let fallPx = (window.innerHeight * fall) / 100;
     console.log(fallPx);
+    */
 
-    const fakeGravity = 700 / 5000; /* px per ms*/
-    let duration = fallPx / fakeGravity;
+    /*const fakeGravity = 700 / 5000; px per ms*/
+    let duration = 3000; /*fallPx / fakeGravity;*/
     let delay;
     /*makes it seem like the rain starts falling gradually */
     if (rainDrops + 3 > maxDrops) {
@@ -124,9 +137,21 @@ function rain() {
     } else {
       delay = randomIntFromInterval(1000, 10000);
     }
+    rainDrop.style.setProperty('--animation-delay', delay + 'ms');
+
+    /*raindrop color!!!*/
+
+    const colorsArray = [
+      'var(--bg-blue)',
+      'var(--bg-pink)',
+      'var(--bg-yellow)',
+    ];
+    const color = randomItem(colorsArray);
+
+    rainDrop.style.setProperty('--drop-clr', color);
 
     rainDrop.style.animationDuration = duration + 'ms';
-    rainDrop.style.animationDelay = delay + 'ms';
+    /*rainDrop.style.animationDelay = delay + 'ms';*/
     rainDrop.style.left = left + '%';
     rainDrop.style.fontSize = size + 'px';
 
@@ -137,9 +162,23 @@ function rain() {
   }
 }
 
+/* UTILITY FUNCTIONS */
 function randomIntFromInterval(min, max) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function randomItem(array) {
+  return array[randomIntFromInterval(0, array.length - 1)];
+}
+
+function randomlyEven(count) {
+  const width = 1 / count;
+  const items = [];
+  for (let i = 0; i < count; i++) {
+    items.push(i * width + width * Math.random());
+  }
+  return items;
 }
 
 const normalize = (
@@ -147,7 +186,7 @@ const normalize = (
   currentScaleMin,
   currentScaleMax,
   newScaleMin = 0,
-  newScaleMax = 1
+  newScaleMax = 1,
 ) => {
   // First, normalize the value between 0 and 1.
   const standardNormalization =
@@ -156,3 +195,27 @@ const normalize = (
   // Next, transpose that value to our desired scale.
   return (newScaleMax - newScaleMin) * standardNormalization + newScaleMin;
 };
+
+/* wind emoji stuff */
+
+function toggleWind() {
+  clear();
+  twoGusts.classList.toggle('wind-hide');
+  twoGusts.classList.toggle('wind-appear');
+
+  /*toggle off if hit any other button */
+  if (
+    twoGusts.classList.contains('wind-appear') &&
+    !twoGusts.classList.contains('wind-hide')
+  ) {
+    snowBtn.addEventListener('click', (e) => {
+      twoGusts.classList.add('wind-hide');
+      twoGusts.classList.remove('wind-appear');
+    });
+
+    rainBtn.addEventListener('click', (e) => {
+      twoGusts.classList.add('wind-hide');
+      twoGusts.classList.remove('wind-appear');
+    });
+  }
+}
