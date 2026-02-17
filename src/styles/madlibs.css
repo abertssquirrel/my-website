@@ -27,7 +27,8 @@
 }
 
 body {
-  background-image: url(../../public/assets/svgs/doodle-bg.svg),
+  background-image:
+    url(../../public/assets/svgs/doodle-bg.svg),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -57,9 +58,13 @@ h1 {
   font-size: clamp(2.5rem, 11vw + 1rem, 9rem);
   line-height: 0.8;
   color: black;
-  text-shadow: 1px 1px 0 var(--bg-yellow), 2px 2px 0 var(--bg-yellow),
-    3px 3px 0 var(--bg-yellow), -1px -1px 0 var(--bg-pink),
-    -2px -2px 0 var(--bg-pink), -3px -3px 0 var(--bg-pink);
+  text-shadow:
+    1px 1px 0 var(--bg-yellow),
+    2px 2px 0 var(--bg-yellow),
+    3px 3px 0 var(--bg-yellow),
+    -1px -1px 0 var(--bg-pink),
+    -2px -2px 0 var(--bg-pink),
+    -3px -3px 0 var(--bg-pink);
   text-transform: uppercase;
   paint-order: stroke;
   margin-top: 2rem;
@@ -73,13 +78,15 @@ h1 {
   margin: 1rem;
   margin-top: 2rem;
   rotate: 10deg;
-  filter: drop-shadow(3px 3px 0px var(--bg-blue));
+  filter: drop-shadow(0.25em 0.25em 0px var(--bg-blue));
 }
 
 summary {
   font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
   font-weight: 800;
-  text-shadow: 1px 1px 0px var(--bg-blue), 2px 2px 0px var(--bg-blue);
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
   cursor: pointer;
 }
 

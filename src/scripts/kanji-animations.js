@@ -1,26 +1,28 @@
+const kanjiWrapper = document.querySelector('.kanji-wrapper');
 const snowLi = document.getElementById('snow-li');
 const snowFact = document.getElementById('snow-facts');
 const snowBtn = document.getElementById('snow-btn');
 const rainBtn = document.getElementById('rain-btn');
-const kanjiWrapper = document.querySelector('.kanji-wrapper');
+const fireflyBtn = document.getElementById('firefly-btn');
+const starBtn = document.getElementById('star-btn');
 const windBtn = document.getElementById('wind-btn');
 const twoGusts = document.getElementById('two-gusts');
 
 snowBtn.addEventListener('click', snow);
 rainBtn.addEventListener('click', rain);
+fireflyBtn.addEventListener('click', firefly);
+starBtn.addEventListener('click', star);
 windBtn.addEventListener('click', toggleWind);
-
-/*function snowFactsToggle() {
-  console.log('facts about snow kanji');
-  snowFact.classList.toggle('appear');
-  snowFact.classList.toggle('vanish');
-}*/
 
 function clear() {
   kanjiWrapper.removeAttribute('data-effect');
   const particles = document.querySelectorAll('.particle');
   particles.forEach((particle) => particle.remove());
+  twoGusts.classList.add('wind-hide');
+  twoGusts.classList.remove('wind-appear');
 }
+
+/* SNOW KANJI */
 
 function snow() {
   const isSnowing = !!document.querySelector('.snow');
@@ -77,7 +79,7 @@ function snow() {
   }
 }
 
-/* rain emoji stuff! */
+/* RAIN KANJI */
 
 function rain() {
   const isRaining = !!document.querySelector('.drop');
@@ -97,10 +99,10 @@ function rain() {
 
   while (rainDrops > 0) {
     const rainDrop = document.createElement('div');
-    rainDrop.classList.add('drop', 'rain-position', 'particle');
+    rainDrop.classList.add('drop', 'particle');
     rainDrop.setAttribute('aria-hidden', 'true');
     rainDrop.innerHTML = `<span>雨</span>
-        <svg class="ripple" width="200" viewBox="0 0 200 30">
+        <svg width="200" viewBox="0 0 200 30">
           <ellipse
             id="ripple-ellipse"
             cx="100"
@@ -119,17 +121,8 @@ function rain() {
     /*need value to place kanji in ripple*/
     rainDrop.style.setProperty('--kanji-font-size', size + 'px');
 
-    /*translateY in rain animation*/
-    /*
-    let fall = normalize(size, 10, 30, 55, 90);
-    console.log(fall);
-    rainDrop.style.setProperty('--fall-percent', fall + 'vh');
-    let fallPx = (window.innerHeight * fall) / 100;
-    console.log(fallPx);
-    */
-
     /*const fakeGravity = 700 / 5000; px per ms*/
-    let duration = 3000; /*fallPx / fakeGravity;*/
+    let duration = 3000;
     let delay;
     /*makes it seem like the rain starts falling gradually */
     if (rainDrops + 3 > maxDrops) {
@@ -160,6 +153,113 @@ function rain() {
 
     rainDrops--;
   }
+}
+
+/* FIREFLY KANJI */
+
+function firefly() {
+  const isFirefly = !!document.querySelector('.firefly');
+  clear();
+  if (isFirefly) {
+    return;
+  }
+
+  /* darken background in kanji-wrapper*/
+  kanjiWrapper.setAttribute('data-effect', 'twilight');
+
+  const width = window.innerWidth;
+  let fireflies = Math.floor(width / 50);
+  const maxFireflies = fireflies;
+
+  while (fireflies > 0) {
+    const firefly = document.createElement('div');
+    firefly.classList.add('firefly', 'particle');
+    firefly.setAttribute('aria-hidden', 'true');
+    firefly.innerHTML = `<span>蛍</span>`;
+
+    /* random firefly position excluding top 1/4*/
+    let left = randomIntFromInterval(0, 100);
+    let top = randomIntFromInterval(25, 100);
+
+    firefly.style.left = left + '%';
+    firefly.style.top = top + '%';
+    let flyDuration = randomIntFromInterval(8000, 12000);
+    firefly.style.setProperty('--fly-duration', flyDuration + 'ms');
+    let direction = randomItem(['forwards', 'backwards']);
+    firefly.style.setProperty('--direction', direction);
+    let size = randomIntFromInterval(6, 25);
+    firefly.style.setProperty('--bug-size', size + 'px');
+    let blinkDuration = randomIntFromInterval(3000, 7000);
+    firefly.style.setProperty('--blink-duration', blinkDuration + 'ms');
+    let blinkDelay = randomIntFromInterval(0, 8000);
+    firefly.style.setProperty('--blink-delay', blinkDelay + 'ms');
+
+    kanjiWrapper.appendChild(firefly);
+
+    fireflies--;
+  }
+}
+
+/* STAR KANJI */
+
+function star() {
+  const isStar = !!document.querySelector('.star');
+  clear();
+  if (isStar) {
+    return;
+  }
+
+  /* darken background in kanji-wrapper */
+  kanjiWrapper.setAttribute('data-effect', 'twilight');
+
+  const width = window.innerWidth;
+  let stars = Math.floor(width / 8);
+  const maxStars = stars;
+
+  while (stars > 0) {
+    const star = document.createElement('div');
+    star.classList.add('star', 'particle');
+    star.setAttribute('aria-hidden', 'true');
+    star.innerHTML = `<span>星</span>`;
+
+    /* random position for star */
+    let left = randomIntFromInterval(0, 100);
+    let top = randomIntFromInterval(0, 100);
+
+    star.style.left = left + '%';
+    star.style.top = top + '%';
+
+    /* random size star */
+    let size = randomIntFromInterval(3, 16);
+    star.style.setProperty('--star-size', size + 'px');
+
+    /* random color star */
+    let glow = randomItem([
+      'rgb(0, 142, 224)',
+      'var(--accent-pink)',
+      'var(--bg-yellow)',
+    ]);
+    star.style.setProperty('--star-glow', glow);
+
+    /* random twinkle delay */
+    let delay = randomIntFromInterval(0, 20000);
+    star.style.setProperty('--twinkle-delay', delay + 'ms');
+
+    kanjiWrapper.appendChild(star);
+
+    stars--;
+  }
+}
+
+/* WIND KANJI */
+
+function toggleWind() {
+  const isBlowing = twoGusts.classList.contains('wind-appear');
+  clear();
+
+  if (isBlowing) return;
+  twoGusts.classList.toggle('wind-hide');
+  twoGusts.classList.toggle('wind-appear');
 }
 
 /* UTILITY FUNCTIONS */
@@ -195,27 +295,3 @@ const normalize = (
   // Next, transpose that value to our desired scale.
   return (newScaleMax - newScaleMin) * standardNormalization + newScaleMin;
 };
-
-/* wind emoji stuff */
-
-function toggleWind() {
-  clear();
-  twoGusts.classList.toggle('wind-hide');
-  twoGusts.classList.toggle('wind-appear');
-
-  /*toggle off if hit any other button */
-  if (
-    twoGusts.classList.contains('wind-appear') &&
-    !twoGusts.classList.contains('wind-hide')
-  ) {
-    snowBtn.addEventListener('click', (e) => {
-      twoGusts.classList.add('wind-hide');
-      twoGusts.classList.remove('wind-appear');
-    });
-
-    rainBtn.addEventListener('click', (e) => {
-      twoGusts.classList.add('wind-hide');
-      twoGusts.classList.remove('wind-appear');
-    });
-  }
-}

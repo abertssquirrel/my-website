@@ -12,6 +12,8 @@
   --outline: rgb(197, 58, 125);
   --white: white;
 
+  --twilight: rgb(21, 10, 32, 0.7);
+
   /*header and footer colors*/
   --clr-text: black;
   --clr-outline: var(--bg-pink);
@@ -89,16 +91,28 @@ body {
   margin: 1rem;
   margin-top: 2rem;
   rotate: 10deg;
-  filter: drop-shadow(3px 3px 0px var(--bg-blue));
+  filter: drop-shadow(0.25em 0.25em 0px var(--bg-blue));
 }
 
 main {
+  color: var(--clr-text);
   font-size: clamp(1rem, 1.25vw + 1rem, 1.5rem);
   font-weight: 800;
   line-height: 1;
   text-shadow:
     1px 1px 0px var(--bg-blue),
     2px 2px 0px var(--bg-blue);
+}
+
+main a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration-style: wavy;
+}
+
+main a:hover,
+main a:focus-visible {
+  color: var(--accent-pink);
 }
 
 ul {
@@ -119,6 +133,7 @@ li:has(details[open]) {
 details {
   & .kanji-facts {
     animation: vanish 1000ms linear forwards;
+    line-height: 1.5;
   }
   & summary {
     list-style: none;
@@ -244,6 +259,8 @@ details[open] {
 }
 
 .kanji-wrapper {
+  background: rgb(0, 0, 0, 0);
+
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -258,9 +275,15 @@ details[open] {
   &[data-effect='rain'] {
     z-index: -1;
   }
+
+  &[data-effect='twilight'] {
+    z-index: -1;
+    background-color: var(--twilight);
+    animation: sunset 2500ms linear;
+  }
 }
 
-/* It's snowing!!!!! */
+/* IT'S SNOWING!!!!! */
 @keyframes fall {
   to {
     transform: translateX(-50%) translateY(100vh);
@@ -280,11 +303,7 @@ details[open] {
   text-shadow: 0em 0em 1em rgb(0, 160, 253);
 }
 
-/* It's raining!!!!! */
-.rain-position {
-  position: absolute;
-  top: -10%;
-}
+/* IT'S RAINING!!!!! */
 
 /*rain drop falls further the larger the font size is*/
 @keyframes rain {
@@ -352,7 +371,7 @@ details[open] {
   color: var(--drop-clr);
   animation: rain var(--duration) var(--animation-delay) infinite forwards
     linear;
-  translate: -50% 0;
+  translate: -50% -150%;
   & span {
     font-size: var(--font-size);
     position: absolute;
@@ -412,4 +431,123 @@ details[open] {
 
 .wind-hide {
   display: none;
+}
+
+/* FIREFLY KANJI */
+
+/*this is used in the twilight data-attribute for the kanji-wrapper*/
+@keyframes sunset {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*firefly flight path animation*/
+@keyframes fly {
+  25% {
+    transform: translate(-300%, -40%);
+  }
+  35% {
+    transform: translate(-400%, -70%);
+  }
+  60% {
+    transform: translate(100%, -100%);
+  }
+}
+
+/*firefly blinking pattern*/
+@keyframes blinkblink {
+  0% {
+    text-shadow: none;
+    color: transparent;
+  }
+
+  20% {
+    text-shadow: none;
+    color: transparent;
+  }
+
+  50% {
+    text-shadow: 0em 0em 0.5em var(--bg-yellow);
+    color: var(--bg-yellow);
+  }
+
+  60% {
+    text-shadow: none;
+    color: rgb(from var(--bg-yellow) r g b / 0.4);
+  }
+
+  70% {
+    text-shadow: 0em 0em 0.5em var(--bg-yellow);
+    color: var(--bg-yellow);
+  }
+
+  80% {
+    text-shadow: none;
+    color: transparent;
+  }
+
+  100% {
+    text-shadow: none;
+    color: transparent;
+  }
+}
+
+/* is this part neccessary? */
+
+.firefly {
+  --fly-duration: 4000ms;
+  --direction: forwards;
+  --blink-duration: 4000ms;
+  --blink-delay: 0;
+  --bug-size: 20px;
+  position: absolute;
+  user-select: none;
+  animation: fly var(--fly-duration) infinite var(--direction) ease-in-out;
+  & span {
+    font-size: var(--bug-size);
+    font-family: var(--font-japanese);
+    color: transparent;
+    animation: blinkblink var(--blink-duration) var(--blink-delay) infinite;
+  }
+}
+
+/* STAR KANJI */
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.star {
+  --star-size: 20px;
+  --star-glow: rgb(0, 142, 224);
+  --twinkle-delay: 0ms;
+  position: absolute;
+  user-select: none;
+  & span {
+    font-size: var(--star-size);
+    font-family: var(--font-japanese);
+    color: var(--white);
+    text-shadow:
+      0em 0em 0.2em var(--white),
+      0em 0em 0.5em var(--star-glow);
+    animation: twinkle 5000ms var(--twinkle-delay) infinite;
+  }
 }
