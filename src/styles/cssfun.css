@@ -21,21 +21,7 @@
 * {
   scrollbar-color: var(--bg-pink) white;
 }
-/*
-body {
-  font-family: var(--font-handwriting);
 
-  background-image: url(../../public/assets/svgs/ed-heart-emojis.svg);
-  background-size: 65%;
-  background-color: var(--bg-pink);
-}
-
-.body-wrapper {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-*/
 body {
   background-image:
     url(../../public/assets/svgs/doodle-bg.svg),

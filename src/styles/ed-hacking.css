@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+:root {
+  --bg-pink: rgb(252, 193, 225);
+  --bg-blue: rgb(140, 189, 218);
+  --bg-lightblue: rgb(184, 208, 221);
+  --bg-yellow: rgb(224, 247, 23);
+  --accent-pink: rgb(250, 58, 116);
+  --outline: rgb(197, 58, 125);
+  --white: white;
+
+  /*header and footer colors*/
+  --clr-text: black;
+  --clr-outline: var(--bg-pink);
+  --clr-outline-accent: var(--bg-yellow);
+
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One', system-ui;
+  --font-code: 'Nimbus Mono PS', 'Courier New', monospace;
+}
+
+/* My Styles */
+* {
+  scrollbar-color: var(--bg-pink) white;
+}
+
+/* rick roll styles */
+
+body {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+.lyrics {
+  font-family: var(--font-code);
+  font-size: 14px;
+  color: rgb(253, 205, 47);
+  text-shadow:
+    0em 0em 0.1em rgb(253, 205, 47),
+    0.04em 0.04em 0em red,
+    0em 0em 0.5em red;
+  padding-inline: 5vw;
+  padding-block: 3rem;
+  line-height: 1.2;
+}
+
+.space {
+  margin-top: 1rem;
+}
+
+.warning {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(106, 242, 252, 0.3);
+  border: solid 0.5em rgb(106, 242, 252, 0.5);
+  box-shadow: 0em 0em 0.25em 0em rgb(106, 242, 252);
+  border-radius: 5px;
+  padding: 1em;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.warning-hide {
+  display: none;
+}
+
+.warning p {
+  text-transform: uppercase;
+  font-family: system-ui, sans-serif;
+  font-weight: 800;
+  color: rgb(106, 242, 252);
+  line-height: 1.2;
+}
+
+.warning .one,
+.warning .three {
+  font-size: clamp(16px, 1.75cqw, 60px);
+}
+
+.warning .two {
+  font-size: clamp(40px, 7cqw, 150px);
+}
+
+.typewriter {
+  visibility: hidden;
+
+  span {
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+  }
+
+  span.show:has(+ span:not(.show)) {
+    border-right: 2px solid red;
+  }
+
+  &.init {
+    visibility: visible;
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 0.7;
+  }
+}
+
+.ed-emoji {
+  --left: 25%;
+  --top: 50%;
+  --rotate: 20deg;
+  --delay: 0ms;
+  position: fixed;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1000;
+  width: clamp(75px, 20cqi, 300px);
+  top: var(--top);
+  left: var(--left);
+  rotate: var(--rotate);
+  opacity: 0;
+  animation: appear 500ms var(--delay) ease-in forwards;
+}
+
+.video {
+  width: fit-content;
+  margin-inline: auto;
+  margin-top: 10vw;
+  text-align: center;
+  opacity: 0;
+}
+
+iframe {
+  border: 1px solid rgb(253, 205, 47);
+  box-shadow:
+    0em 0em 0.1em 0em rgb(253, 205, 47),
+    0.04em 0.04em 0em 0em red,
+    0em 0em 0.5em 0em red;
+}
