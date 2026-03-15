@@ -62,9 +62,9 @@ body {
 .kanji-title {
   font-family: var(--font-pumpkin);
   line-height: 0.8;
-  width: 55cqi;
+  width: 40cqi;
   color: var(--clr-text);
-  font-size: clamp(2.25rem, 7cqi + 1rem, 5rem);
+  font-size: clamp(2rem, 7cqi + 1rem, 5rem);
   text-shadow:
     0.01em 0.01em 0 var(--bg-yellow),
     0.04em 0.04em 0 var(--bg-yellow),
@@ -77,7 +77,7 @@ body {
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
-  hyphens: auto;
+  hyphens: manual;
 }
 
 .heading {
