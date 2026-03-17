@@ -76,10 +76,10 @@ function initTypewriters() {
 
 function edEmojiAttack() {
   const edEmojiSvgs = [
-    '../../public/assets/svgs/ed-smile-pink.svg',
-    '../../public/assets/svgs/ed-whistle-pink.svg',
-    '../../public/assets/svgs/ed-crazyeyes-pink.svg',
-    '../../public/assets/svgs/ed-forward-pink.svg',
+    '/assets/svgs/ed-smile-pink.svg',
+    '/assets/svgs/ed-whistle-pink.svg',
+    '/assets/svgs/ed-crazyeyes-pink.svg',
+    '/assets/svgs/ed-forward-pink.svg',
   ];
 
   let count = 70;

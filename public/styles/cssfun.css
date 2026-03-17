@@ -24,7 +24,7 @@
 
 body {
   background-image:
-    url(../../public/assets/svgs/doodle-bg.svg),
+    url(/assets/svgs/doodle-bg.svg),
     repeating-linear-gradient(
       0deg,
       transparent,
