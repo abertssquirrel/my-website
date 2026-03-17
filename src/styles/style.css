@@ -136,7 +136,7 @@ h2 {
 }
 
 .nelly-tasha {
-  background: url(assets/photos/tasha-nelly.jpg);
+  background: url(/assets/photos/tasha-nelly.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--bg-pink);
