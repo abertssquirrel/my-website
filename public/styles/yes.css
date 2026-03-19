@@ -48,17 +48,18 @@ body {
   padding-inline: 1rem;
 }
 
+.yes-wrapper {
+  text-align: center;
+}
+
 .link {
-  color: inherit;
+  color: var(--clr-text);
   text-decoration: none;
 }
 
 .yes-btn {
-  font-family: var(--font-japanese);
   font-size: 2rem;
-  display: block;
-  text-align: center;
-  margin-inline: auto;
+  display: inline-block;
   text-shadow:
     1px 1px 0px var(--bg-blue),
     2px 2px 0px var(--bg-blue);
@@ -89,7 +90,6 @@ body {
 }
 
 .counter {
-  text-align: center;
   color: var(--clr-text);
   font-size: clamp(1rem, 1.25vw + 1rem, 1.5rem);
   font-weight: 800;

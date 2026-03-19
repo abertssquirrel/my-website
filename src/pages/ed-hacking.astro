@@ -2,11 +2,12 @@
 import Head from '../components/head.astro'
 import "/src/styles/reset.css"
 
-import "/src/styles/ed-hacking.css"
 ---
 
 <html lang="en">
-	<Head title="ed-hacking"></Head>
+	<Head title="ed-hacking">
+        <link rel="stylesheet" href="/styles/ed-hacking.css" />
+    </Head>
  <body>
     <div class="rickroll-wrapper rickroll-hide">
         <div class="lyrics typewriter"> 
@@ -76,10 +77,12 @@ import "/src/styles/ed-hacking.css"
         
     </div>
     <div class="video">
-        
-        <iframe width="420" height="315"
+        <div class="home"><a href="/">home</a></div>
+        <div style="--aspect-ratio: 16/9;">
+        <iframe width="800" height="450"
         src="https://www.youtube.com/embed/LBFePP9JWYg?autoplay=1">
         </iframe>
+        </div>
         <div class="lyrics">
         <p>WARNING this video is most definitely bad for people with photosensitivity.</p>
         <p class="space">video by John Michael Boling and Javier Alberto Morales, music by Javier</p>

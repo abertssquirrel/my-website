@@ -3,21 +3,22 @@ import Head from '../components/head.astro'
 import Header from '../components/header.astro'
 import Footer from '../components/footer.astro'
 import "/src/styles/reset.css"
-import "/src/styles/yes.css"
 import "/src/styles/starwipe.css"
 ---
 
 <html lang="en">
-	<Head title="yes"></Head>
+	<Head title="yes">
+    <link rel="stylesheet" href="/styles/yes.css" />
+  </Head>
  <body>
     <div class="body-wrapper">
       <Header></Header>
-      <button class="yes-btn" >
-        <a class="link" href="/ed-hacking">yes</a>
-      </button>
+      <div class="yes-wrapper">
+        <a class="link yes-btn" href="/ed-hacking">yes</a>
+      
       <p class="counter">yes counter : <span>0</span></p>
       
-      
+      </div>
       <Footer></Footer>
     </div>
     

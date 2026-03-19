@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Indie+Flower&display=swap');
+:root {
+  --bg-pink: rgb(252, 193, 225);
+  --bg-blue: rgb(140, 189, 218);
+  --bg-lightblue: rgb(184, 208, 221);
+  --bg-yellow: rgb(224, 247, 23);
+  --accent-pink: rgb(250, 58, 116);
+  --outline: rgb(197, 58, 125);
+  --white: white;
+
+  /*header and footer colors*/
+  --clr-text: black;
+  --clr-outline: var(--bg-pink);
+  --clr-outline-accent: var(--bg-yellow);
+
+  --font-handwriting: 'Indie Flower', cursive;
+  --font-pumpkin: 'Cherry Bomb One', system-ui;
+}
+
+/* My Styles */
+* {
+  scrollbar-color: var(--bg-pink) white;
+}
+
+body {
+  background-image:
+    url(/assets/svgs/doodle-bg.svg),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      var(--bg-lightblue) 30px,
+      var(--bg-lightblue) 32px
+    );
+
+  background-size: 800px;
+  color: black;
+  font-family: var(--font-handwriting);
+  margin-block: 0;
+}
+
+.body-wrapper {
+  max-width: 800px;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.heading {
+  container-type: inline-size;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-pumpkin);
+}
+
+.space {
+  margin-top: 2rem;
+}
+
+h1 {
+  font-family: var(--font-pumpkin);
+  line-height: 0.8;
+  width: 55cqi;
+  color: var(--clr-text);
+  font-size: clamp(2rem, 4cqi + 1rem, 4rem);
+  text-shadow:
+    0.01em 0.01em 0 var(--bg-yellow),
+    0.04em 0.04em 0 var(--bg-yellow),
+    -0.01em -0.01em 0 var(--bg-pink),
+    -0.04em -0.04em 0 var(--bg-pink);
+  text-transform: uppercase;
+  paint-order: stroke;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.ed-smile {
+  float: right;
+  shape-outside: circle();
+  width: 35cqi;
+  margin: 1rem;
+  margin-top: 2rem;
+  rotate: 10deg;
+  filter: drop-shadow(0.25em 0.25em 0px var(--bg-blue));
+}
+
+.cookie-photo {
+  width: clamp(200px, 60cqi, 500px);
+  height: auto;
+  margin-inline: auto;
+  margin-block: 3rem;
+  border-radius: 1rem;
+  box-shadow:
+    0.25em 0.25em 0px 0px var(--bg-yellow),
+    -0.25em -0.25em 0px 0px var(--bg-pink);
+}
+
+h2 {
+  text-shadow:
+    0.01em 0.01em 0 var(--bg-pink),
+    0.04em 0.04em 0 var(--bg-pink);
+  text-transform: uppercase;
+  line-height: 0.8;
+  margin-bottom: 3rem;
+}
+
+h3 {
+}
+
+p,
+section {
+  color: var(--clr-text);
+  font-size: clamp(1.25rem, 1.5cqi + 1rem, 1.5rem);
+  font-weight: 800;
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue);
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.underline {
+  text-decoration: underline solid 0.1em;
+  text-decoration-skip-ink: none;
+}
+
+.pretty {
+  color: var(--accent-pink);
+  /*
+  text-shadow:
+    1px 1px 0px var(--bg-blue),
+    2px 2px 0px var(--bg-blue),
+    3px 3px 0px var(--bg-pink),
+    4px 4px 0px var(--bg-pink),
+    5px 5px 0px var(--bg-yellow),
+    6px 6px 0px var(--bg-yellow);
+    */
+}

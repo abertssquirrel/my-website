@@ -3,12 +3,13 @@ import Head from '../components/head.astro'
 import Header from '../components/header.astro'
 import Footer from '../components/footer.astro'
 import "/src/styles/reset.css"
-import "/src/styles/style.css"
 import "/src/styles/starwipe.css"
 ---
 
 <html lang="en">
-	<Head title="Nelly's homepage"></Head>
+	<Head title="Nelly's homepage">
+		<link rel="stylesheet" href="/styles/style.css" />
+	</Head>
 	<body>
 		<section class="bg-white">
 			<Header></Header>

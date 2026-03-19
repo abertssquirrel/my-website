@@ -1,0 +1,67 @@
+---
+import Head from '../components/head.astro'
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import "/src/styles/reset.css"
+import "/src/styles/starwipe.css"
+---
+<html lang="en">
+  <Head title="CSS Fun">
+    <link rel="stylesheet" href="/styles/recipe.css" />
+    <link rel="stylesheet" media="print" href="/styles/print-recipe.css" />
+  </Head>
+  <body>
+    <div class="body-wrapper">
+    <Header></Header>
+    <div class="heading">
+      <img class="ed-smile" src="/assets/svgs/ed-forward-pink.svg" alt="">
+      <h1>Vegan Chocolate Chip Cookies</h1>
+      <p>I have been tweaking this recipe for years! Vegan butter tends to be a bit less solid than the stuff from cows so I like to use it straight from the fridge and add a bit more fiber in the form of whole wheat flour and flaxseed to help stabilize the dough.</p>
+    <img 
+        class="cookie-photo"
+        src="/assets/photos/vegan-chocolate-chip-cookies.jpg"
+        alt="photo of my cookies on a pink table with a cup of matcha in my favorite/only matcha bowl featuring hopping in the moonlight">
+    </div>
+    <section class="ingredients">
+        <h2>Ingredients</h2>
+        <div class="wet">
+            <h3>Wet</h3>
+                <ul>
+                    <li>6 TBSP warm water</li>
+                    <li>4 TBSP <span class="pretty">ground golden flaxseed</span> (yes it must be golden)</li>
+                    <li>1 cup vegan butter, chopped and chilled (I use earthbalance)</li>
+                    <li>3/4 cup brown sugar</li>
+                    <li>3/4 cup granulated sugar</li>
+                    <li>1 1/2 tsp vanilla extract</li>
+                </ul>
+        </div>
+        <div class="dry">
+            <h3>Dry</h3>
+                <ul>
+                    <li>1 1/4 cups all purpose flour</li>
+                    <li>1 cup <span class="pretty">whole wheat flour</span> (this is important, the added fiber helps keep the cookie from spreading)</li>
+                    <li>1 tsp baking soda</li>
+                    <li>1 tsp salt</li>
+                    <li>1 cup oats</li>
+                    <li>vegan chocolate chips (as much or as little as you want)</li>
+                </ul>
+        </div>
+        
+    </section>
+    <section class="directions">
+        <h2>Directions</h2>
+        <ol>
+            <li>Pre-heat oven to 350 &#176;F.</li>
+            <li>Mix warm water and ground flaxseed in a small bowl and set aside to thicken, this is used to replace the eggs. Golden flaxseed replicates the gooeyness of eggs better than brown flaxseed, and the fiber in flaxseed helps firm up the vegan cookie dough better than other egg replacers while imparting a nice nutty taste.</li>
+            <li>Cream together vegan butter and sugar in a stand mixer. Don't be shy, beat the heck out of it.</li>
+            <li>In a separate bowl mix together AP flour, whole wheat flour, baking soda, and salt.</li>
+            <li>Add flaxseed mixture and vanilla to creamed butter and sugar till combined.</li>
+            <li>Turn mixer on low and slowly incorporate flour mixture into wet ingredients.</li>
+            <li>Mix in oats and vegan chocolate chips.</li>
+            <li>Scoop cookie dough onto tray using a heaping tablespoon.</li>
+            <li>Bake cookies for about 12 minutes. (You can add more or less time depending how you like your cookies) Leave cookies on tray for atleast a minute after removing from oven to finish cooking.</li>
+        </ol>
+    </section>
+    <Footer></Footer>
+    </div>
+  </body>

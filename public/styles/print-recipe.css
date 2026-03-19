@@ -1,0 +1,50 @@
+Header,
+Footer,
+.ed-smile,
+.cookie-photo {
+  display: none;
+}
+
+body {
+  background-image: none;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  text-shadow: none;
+}
+
+h1,
+h2,
+h3 {
+  -webkit-text-stroke: 0.2em black;
+  -webkit-text-fill-color: white;
+  paint-order: stroke fill;
+  color: white;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+p,
+ul,
+ol {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pretty {
+  color: black;
+  text-decoration: underline solid 1px;
+}
