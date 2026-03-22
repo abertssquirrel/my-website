@@ -6,6 +6,41 @@ import "/src/styles/reset.css"
 import "/src/styles/starwipe.css"
 ---
 
+<script>
+    const yesButton = document.querySelector('.yes-btn')
+    const yesCounter = document.querySelector('.counter span')
+
+    initializeCounter()
+
+    async function initializeCounter() {
+        if (!yesCounter) throw new Error('no counter')
+        yesButton?.addEventListener('click', onYesClick)
+        const countResp = await fetch('/api/count')
+        const count = await countResp.text()
+        // Ignore errors
+        if (countResp.status !== 200 || !count) return;
+        setCount(count)
+    }
+
+     function onYesClick() {
+        incrementYesCounter()
+         window.location.href = '/ed-hacking'
+    }
+
+    async function incrementYesCounter() {
+        const currentCount = parseInt(yesCounter?.textContent ?? '0')
+        setCount((currentCount+1).toString()) // Optimistically increment by one while the request is in flight
+        const newCountResp = await fetch('/api/count', { method: 'POST' })
+        const newCount = await newCountResp.text()
+        setCount(newCount)
+    }
+
+    function setCount(count: string) {
+        if (!yesCounter) return;
+        yesCounter.textContent = count
+    }
+</script>
+
 <html lang="en">
 	<Head title="yes">
     <link rel="stylesheet" href="/styles/yes.css" />
@@ -14,12 +49,11 @@ import "/src/styles/starwipe.css"
     <div class="body-wrapper">
       <Header></Header>
       <div class="yes-wrapper">
-        <a class="link yes-btn" href="/ed-hacking">yes</a>
+          <button class="link yes-btn">yes</button>
       
       <p class="counter">yes counter : <span>0</span></p>
       
       </div>
       <Footer></Footer>
     </div>
-    
  </body>
