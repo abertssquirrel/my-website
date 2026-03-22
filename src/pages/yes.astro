@@ -6,6 +6,32 @@ import "/src/styles/reset.css"
 import "/src/styles/starwipe.css"
 ---
 
+<script>
+    const yesButton = document.querySelector('.yes-btn')
+    const yesCounter = document.querySelector('.counter span')
+
+    initializeCounter()
+
+    async function initializeCounter() {
+        if (!yesCounter) throw new Error('no counter')
+        yesButton?.addEventListener('click', incrementYesCounter)
+        const countResp = await fetch('/api/count')
+        const count = await countResp.text()
+        setCount(count)
+    }
+
+    async function incrementYesCounter() {
+        const newCountResp = await fetch('/api/count', { method: 'POST' })
+        const newCount = await newCountResp.text()
+        setCount(newCount)
+    }
+
+    function setCount(count: string) {
+        if (!yesCounter) return;
+        yesCounter.textContent = count
+    }
+</script>
+
 <html lang="en">
 	<Head title="yes">
     <link rel="stylesheet" href="/styles/yes.css" />
@@ -21,5 +47,4 @@ import "/src/styles/starwipe.css"
       </div>
       <Footer></Footer>
     </div>
-    
  </body>
