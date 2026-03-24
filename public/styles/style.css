@@ -163,11 +163,16 @@ ol {
 .text a {
   color: black;
   font-weight: 800;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
   text-decoration-style: wavy;
 }
 
 .text a:hover,
 .text a:focus-visible {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-style: wavy;
   color: var(--accent-pink);
 }
 

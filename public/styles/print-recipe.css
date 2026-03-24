@@ -21,20 +21,16 @@ ol {
 h1,
 h2,
 h3 {
-  -webkit-text-stroke: 0.2em black;
-  -webkit-text-fill-color: white;
-  paint-order: stroke fill;
-  color: white;
 }
 
 h1 {
-  font-size: 2.5rem;
-}
-h2 {
   font-size: 2rem;
 }
-h3 {
+h2 {
   font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
 }
 
 p,

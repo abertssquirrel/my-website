@@ -111,7 +111,19 @@ h2 {
   margin-bottom: 3rem;
 }
 
-h3 {
+section a {
+  color: black;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-style: wavy;
+}
+
+section a:hover,
+section a:focus-visible {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-style: wavy;
+  color: var(--accent-pink);
 }
 
 p,
