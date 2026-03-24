@@ -29,11 +29,13 @@ import "/src/styles/starwipe.css"
             </p>
             <p>Let's do this!</p>
           </div>
+          <figure class="album-art">
           <img
-            class="album-art"
             src="/assets/photos/album-art/LizzoBoys2018Single.jpg"
             alt="the album art from Lizzo's song 'Boys'"
           />
+          <figcaption class="caption">The album art from Lizzo's song 'Boys'</figcaption>
+          </figure>
         </div>
         <h3>Step one: Layout!</h3>
         <p class="p-space">
@@ -53,10 +55,13 @@ import "/src/styles/starwipe.css"
           <code>grid-template-columns: repeat(6, minmax(0, 1fr))</code> would
           have accomplished the same thing, but it seems too much like magic.
         </p>
+        <figure class="css-album-wrapper">
         <div class="album-pink">
           <h1 class="boys">BOYS</h1>
           <h2 class="lizzo">LIZZO</h2>
         </div>
+        <figcaption class="caption">Recreating the layout of Lizzo's 'Boys' in CSS</figcaption>
+        </figure>
         <p class="pink">HTML</p>
         <pre class="code-block p-space"><code>&lt;div class="album"&#62;
     &lt;h1 class="boys"&#62;BOYS&lt;/h1&#62;
@@ -108,10 +113,13 @@ import "/src/styles/starwipe.css"
           Unfortunately the stripe colors don't quite repeat, so I had to
           lovingly place each color.
         </p>
+        <figure class="css-album-wrapper">
         <div class="album stripes">
           <h1 class="boys">BOYS</h1>
           <h2 class="lizzo">LIZZO</h2>
         </div>
+        <figcaption class="caption">Recreating the stripes for Lizzo's 'Boys' in CSS</figcaption>
+        </figure>
         <p class="pink">HTML</p>
         <pre class="code-block p-space"><code>&lt;div class="album stripes"&gt;
     &lt;h1 class="boys"&gt;BOYS&lt;/h1&gt;
@@ -189,10 +197,13 @@ import "/src/styles/starwipe.css"
           <code>stroke width</code> uses <code>cqi</code> units so that it is
           responsive.
         </p>
+        <figure class="css-album-wrapper">
         <div class="album stripes">
           <h1 class="boys rainbow-outline-lg">BOYS</h1>
           <h2 class="lizzo rainbow-outline-sm">LIZZO</h2>
         </div>
+        <figcaption class="caption">Recreating the rainbow text outline from Lizzo's 'Boys' in CSS</figcaption>
+        </figure>
         <p class="pink">HTML</p>
         <pre class="code-block p-space"><code>&lt;div class="album stripes"&gt;
     &lt;h1 class="boys rainbow-outline-lg"&gt;BOYS&lt;/h1&gt;

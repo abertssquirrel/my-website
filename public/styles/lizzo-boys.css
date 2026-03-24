@@ -164,12 +164,35 @@ code {
 }
 
 .album-art {
-  --photo-width: clamp(260px, 35vw, 500px);
-  margin: 1.5rem;
+  margin: 1em;
+  width: clamp(260px, 35vw, 500px);
   align-self: center;
   justify-self: center;
+}
+
+.album-art > img {
+  --photo-width: clamp(260px, 35vw, 500px);
+
   width: var(--photo-width);
+  width: 100%;
   box-shadow: 0.2em 0.2em 1em 0em var(--clr-hotpink);
+}
+
+.caption {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-pumpkin);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--clr-black);
+  text-shadow: 0.05em 0.05em 0 var(--clr-hotpink);
+  margin-top: 1em;
+  margin-inline: auto;
+}
+
+.css-album-wrapper {
+  margin-block: 4rem;
 }
 
 .album-pink {
@@ -184,7 +207,6 @@ code {
   box-shadow: 0.2em 0.2em 0.5em 0em var(--clr-hotpink);
   border-radius: 0.2em;
   margin-inline: auto;
-  margin-block: 4rem;
 }
 
 .album2 {
@@ -200,7 +222,6 @@ code {
   background: var(--clr-pink);
   border-radius: 0.2em;
   margin-inline: auto;
-  margin-block: 4rem;
 }
 
 .album {
@@ -216,7 +237,6 @@ code {
   box-shadow: 0.2em 0.2em 0.5em 0em var(--clr-hotpink);
   border-radius: 0.2em;
   margin-inline: auto;
-  margin-block: 4rem;
 }
 
 .album::before {
