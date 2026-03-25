@@ -159,6 +159,72 @@ section a:focus-visible {
   color: var(--bg-pink);
 }
 
+.play-btn {
+  border: none;
+  color: inherit;
+  -webkit-text-stroke: 0.2em var(--bg-blue);
+  paint-order: stroke;
+  font-weight: 800;
+  background-color: transparent;
+  padding: 0;
+  display: inline;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--bg-pink);
+  }
+
+  &:active {
+    -webkit-text-stroke-width: 0.3em;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue);
+  }
+
+  50% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue),
+      3px 3px 0px var(--bg-pink),
+      4px 4px 0px var(--bg-pink),
+      5px 5px 0px var(--bg-yellow),
+      6px 6px 0px var(--bg-yellow);
+  }
+
+  100% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue);
+  }
+}
+
+.madlib-span {
+  opacity: 0;
+  margin-left: 2rem;
+  color: gray;
+}
+
+.madlib-span:not(.appear) {
+  visibility: hidden;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+.appear {
+  animation:
+    appear 6000ms forwards ease-in,
+    bounce 2500ms infinite ease-in;
+}
+
 .album-art {
   --photo-width: 100px;
   object-fit: cover;
