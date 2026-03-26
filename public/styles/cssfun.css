@@ -186,7 +186,41 @@ section a:focus-visible {
       2px 2px 0px var(--bg-blue);
   }
 
-  50% {
+  20% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue),
+      3px 3px 0px var(--bg-pink),
+      4px 4px 0px var(--bg-pink),
+      5px 5px 0px var(--bg-yellow),
+      6px 6px 0px var(--bg-yellow),
+      7px 7px 0px var(--bg-yellow),
+      8px 8px 0px var(--bg-yellow);
+  }
+
+  40% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue);
+  }
+
+  60% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue),
+      3px 3px 0px var(--bg-pink),
+      4px 4px 0px var(--bg-pink),
+      5px 5px 0px var(--bg-yellow),
+      6px 6px 0px var(--bg-yellow);
+  }
+
+  65% {
+    text-shadow:
+      1px 1px 0px var(--bg-blue),
+      2px 2px 0px var(--bg-blue);
+  }
+
+  70% {
     text-shadow:
       1px 1px 0px var(--bg-blue),
       2px 2px 0px var(--bg-blue),
@@ -222,7 +256,7 @@ section a:focus-visible {
 .appear {
   animation:
     appear 6000ms forwards ease-in,
-    bounce 2500ms infinite ease-in;
+    bounce 4000ms infinite ease-in;
 }
 
 .album-art {
