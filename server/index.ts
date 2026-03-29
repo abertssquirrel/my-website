@@ -36,10 +36,10 @@ const server = Bun.serve({
                 const branch = json.ref.split('/').pop()
                 if (branch !== 'server') return new Response('ok')
 
-                // Build astro and restart server
-                console.log('Deploying')
-                await $`cd /var/www/abertssquirrel.com && git pull && npm run build && pm2 restart abertssquirrel.com`
-                console.log('Deployed')
+                // Build astro and restart server after responding
+                setTimeout(()=>{
+                    $`cd /var/www/abertssquirrel.com && git pull && npm run build`
+                })
 
                 return new Response('ok')
             }
