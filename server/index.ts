@@ -37,7 +37,9 @@ const server = Bun.serve({
                 if (branch !== 'server') return new Response('ok')
 
                 // Build astro and restart server
+                console.log('Deploying')
                 await $`cd /var/www/abertssquirrel.com && git pull && npm run build && pm2 restart abertssquirrel.com`
+                console.log('Deployed')
 
                 return new Response('ok')
             }
