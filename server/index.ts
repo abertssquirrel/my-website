@@ -34,7 +34,7 @@ const server = Bun.serve({
 
                 const json = JSON.parse(body)
                 const branch = json.ref.split('/').pop()
-                if (branch !== 'server') return new Response('ok')
+                if (branch !== 'prod') return new Response('ok')
 
                 // Build astro and restart server
                 await $`cd /var/www/abertssquirrel.com && git pull && npm run build && pm2 restart abertssquirrel.com`
