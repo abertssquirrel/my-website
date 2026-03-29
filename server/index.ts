@@ -16,6 +16,14 @@ const server = Bun.serve({
                 return new Response(count.toString())
             }
         },
+        "/webhooks/deploy": {
+            POST: async (req) => {
+                const body = await req.text()
+                console.log('body', body,)
+                console.log('secret', process.env.GITHUB_WEBHOOK_SECRET,)
+                return new Response('ok')
+            }
+        }
     }
 });
 
