@@ -1,4 +1,6 @@
 import {Counter} from "./scr/count.ts";
+import {verifySignature} from "./scr/webhooks.ts";
+import {$} from 'bun'
 
 const yesCounter = new Counter('yes')
 
@@ -16,6 +18,30 @@ const server = Bun.serve({
                 return new Response(count.toString())
             }
         },
+        "/webhooks/deploy": {
+            POST: async (req) => {
+                const secret = process.env.GITHUB_WEBHOOK_SECRET
+                const signature = req.headers.get('X-Hub-Signature-256')
+                const body = await req.text()
+                if (!secret || !signature || !body) {
+                    return new Response('Bad Request', { status: 400 })
+                }
+
+                const verified = await verifySignature(secret,signature, body )
+                if (!verified) {
+                    return new Response('Unauthorized', { status: 401 })
+                }
+
+                const json = JSON.parse(body)
+                const branch = json.ref.split('/').pop()
+                if (branch !== 'prod') return new Response('ok')
+
+                // Pull git and build
+                await $`cd /var/www/abertssquirrel.com && git pull && npm run build`
+
+                return new Response('ok')
+            }
+        }
     }
 });
 
