@@ -22,9 +22,16 @@ const server = Bun.serve({
                 console.log('AAAA', req)
                 const body = await req.text()
                 console.log('body', body,)
-                console.log('signature', req.headers.get('X-Hub-Signature-256'))
-                console.log('verify', verifySignature(process.env.GITHUB_WEBHOOK_SECRET!,req.headers.get('X-Hub-Signature-256')!, body ))
-                console.log('secret', process.env.GITHUB_WEBHOOK_SECRET,)
+                const signature = req.headers.get('X-Hub-Signature-256')
+                const secret = process.env.GITHUB_WEBHOOK_SECRET
+                if (!secret || !signature || !body) {
+                    return new Response('Bad Request', { status: 400 })
+                }
+                const verified = await verifySignature(secret,signature, body )
+                console.log('Verified', verified)
+                if (!verified) {
+                    return new Response('Unauthorized', { status: 401 })
+                }
                 return new Response('ok')
             }
         }
