@@ -37,6 +37,7 @@ const server = Bun.serve({
                 if (branch !== 'server') return new Response('ok')
 
                 // Build astro and restart server after responding
+                console.log('test!!')
                 setTimeout(()=>{
                     $`cd /var/www/abertssquirrel.com && git pull && npm run build`
                 })
