@@ -37,7 +37,7 @@ const server = Bun.serve({
                 if (branch !== 'server') return new Response('ok')
 
                 // Pull git and build
-                console.log('test!!!!')
+                console.log('test!!!!!')
                 await $`cd /var/www/abertssquirrel.com && git pull && npm run build`
 
                 return new Response('ok')
