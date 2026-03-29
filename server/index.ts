@@ -38,7 +38,7 @@ const server = Bun.serve({
 
                 // Pull git and build
                 console.log('test!!!!')
-                $`cd /var/www/abertssquirrel.com && git pull && npm run build`
+                await $`cd /var/www/abertssquirrel.com && git pull && npm run build`
 
                 return new Response('ok')
             }
