@@ -129,12 +129,24 @@ body {
 }
 
 .video {
-  width: fit-content;
+  max-width: 600px;
   margin-inline: auto;
-  margin-top: 10vw;
+  margin-top: 5vw;
   text-align: center;
   padding-inline: 1rem;
   opacity: 0;
+}
+
+.video-info {
+  font-family: var(--font-code);
+  font-size: 14px;
+  color: rgb(253, 205, 47);
+  text-shadow:
+    0em 0em 0.1em rgb(253, 205, 47),
+    0.04em 0.04em 0em red,
+    0em 0em 0.5em red;
+  padding-top: 3rem;
+  line-height: 1.2;
 }
 
 .home {

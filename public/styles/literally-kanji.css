@@ -115,7 +115,7 @@ main a:focus-visible {
   color: var(--accent-pink);
 }
 
-ul {
+main ul {
   list-style: none;
   margin-top: 2rem;
   display: flex;
@@ -125,7 +125,7 @@ ul {
 }
 
 /*forces open detail element to be first in the list if opened*/
-li:has(details[open]) {
+main li:has(details[open]) {
   order: -1;
 }
 
